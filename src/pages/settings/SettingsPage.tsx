@@ -33,7 +33,7 @@ export const SettingsPage: React.FC = () => {
         <div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">Platform Settings</h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Configure clinic organizational details, automated reminders, and presentation demo state.
+            Clinic profile, notifications, and demo state.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export const SettingsPage: React.FC = () => {
           className="px-4 py-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 font-bold text-xs transition-colors flex items-center gap-1.5"
         >
           <RotateCcw className="w-4 h-4 text-amber-600" />
-          <span>Reset Demo Dataset</span>
+          <span>Reset Demo</span>
         </button>
       </div>
 
@@ -55,7 +55,7 @@ export const SettingsPage: React.FC = () => {
             </div>
             <div>
               <h2 className="text-base font-bold text-slate-900">Clinic Profile & Licensure</h2>
-              <p className="text-xs text-slate-500">Official clinic identifiers used on invoices and reports</p>
+              <p className="text-xs text-slate-500">Clinic details for invoices and reports</p>
             </div>
           </div>
 
@@ -131,15 +131,15 @@ export const SettingsPage: React.FC = () => {
             </div>
             <div>
               <h2 className="text-base font-bold text-slate-900">Automated Communications</h2>
-              <p className="text-xs text-slate-500">Configure client SMS and email reminder notifications</p>
+              <p className="text-xs text-slate-500">Client SMS and email notifications</p>
             </div>
           </div>
 
           <div className="space-y-3 text-xs">
             <label className="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
               <div>
-                <strong className="block text-slate-900 font-semibold">SMS Appointment Reminders (24h Before)</strong>
-                <span className="text-slate-500">Automatically dispatches SMS reminders to parents for scheduled sessions.</span>
+                <strong className="block text-slate-900 font-semibold">SMS Reminders (24h Before)</strong>
+                <span className="text-slate-500">Send SMS reminders 24 hours prior to sessions.</span>
               </div>
               <input
                 type="checkbox"
@@ -151,8 +151,8 @@ export const SettingsPage: React.FC = () => {
 
             <label className="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
               <div>
-                <strong className="block text-slate-900 font-semibold">Email Progress Reports & SOAP Notes</strong>
-                <span className="text-slate-500">Notify parents whenever a therapist signs off on a new session note.</span>
+                <strong className="block text-slate-900 font-semibold">SOAP Note Notifications</strong>
+                <span className="text-slate-500">Alert parents when session notes are signed.</span>
               </div>
               <input
                 type="checkbox"
@@ -164,8 +164,8 @@ export const SettingsPage: React.FC = () => {
 
             <label className="flex items-center justify-between p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
               <div>
-                <strong className="block text-slate-900 font-semibold">Billing Superbill Dispatches</strong>
-                <span className="text-slate-500">Send itemized superbill receipts upon recorded payment.</span>
+                <strong className="block text-slate-900 font-semibold">Superbill Receipts</strong>
+                <span className="text-slate-500">Email itemized receipts upon payment.</span>
               </div>
               <input
                 type="checkbox"
@@ -198,9 +198,9 @@ export const SettingsPage: React.FC = () => {
           setConfirmResetOpen(false);
           setFormData({ ...settings });
         }}
-        title="Restore Initial Sample Data?"
-        message="This will reset all children, therapist records, scheduled appointments, SOAP notes, and billing items back to their pristine demo defaults."
-        confirmLabel="Yes, Reset All Data"
+        title="Restore Demo Data?"
+        message="Reset all records back to demo defaults."
+        confirmLabel="Reset Data"
         variant="warning"
       />
     </div>

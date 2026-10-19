@@ -233,10 +233,10 @@ export const ParentPortal: React.FC = () => {
           <div className="p-3 bg-teal-50/70 border border-teal-100 rounded-2xl text-[11px] text-teal-950 space-y-1">
             <span className="font-bold flex items-center gap-1">
               <Sparkles className="w-3.5 h-3.5 text-teal-600" />
-              Specialist Note for Liam
+              Specialist Note
             </span>
             <p>
-              Liam has been responding wonderfully to deep pressure input before table activities. Keep practicing his scissor loop exercises at home!
+              Great response to sensory warm-ups. Continue scissor exercises at home.
             </p>
           </div>
         </div>
@@ -248,10 +248,10 @@ export const ParentPortal: React.FC = () => {
           <div>
             <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
               <Award className="w-5 h-5 text-amber-500" />
-              Liam’s Developmental Milestones & Goals
+              Developmental Milestones & Goals
             </h2>
             <p className="text-xs text-slate-500">
-              Evaluated and updated by Michael Chen after every clinical session
+              Updated after every clinical session
             </p>
           </div>
           <span className="text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
@@ -299,7 +299,7 @@ export const ParentPortal: React.FC = () => {
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <FileText className="w-5 h-5 text-teal-600" />
-              Shared Session Progress Notes
+              Progress Notes
             </h3>
             <span className="text-xs text-slate-400">{liamSessions.length} Notes</span>
           </div>
@@ -318,7 +318,7 @@ export const ParentPortal: React.FC = () => {
                 {sess.homeExercises && (
                   <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900">
                     <strong className="block mb-0.5 text-[10px] uppercase tracking-wider text-amber-800">
-                      Recommended Home Routine:
+                      Home Practice:
                     </strong>
                     {sess.homeExercises}
                   </div>

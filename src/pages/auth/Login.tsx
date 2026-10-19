@@ -85,7 +85,7 @@ export const Login: React.FC = () => {
           <div className="mb-6 text-center sm:text-left">
             <h2 className="text-2xl font-black text-slate-900 tracking-tight">Portal Sign In</h2>
             <p className="text-xs text-slate-500 mt-1">
-              Select your role below and sign in to access your pediatric dashboard.
+              Select your role to continue.
             </p>
           </div>
 
@@ -282,7 +282,7 @@ export const Login: React.FC = () => {
         ) : (
           <form onSubmit={handleForgotSubmit} className="space-y-4">
             <p className="text-xs text-slate-600 leading-relaxed">
-              Enter your account email address and we'll send you instructions to reset your password.
+              Enter your email to receive password reset instructions.
             </p>
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">Account Email</label>

@@ -30,7 +30,7 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100/80 text-teal-800 text-xs sm:text-sm font-bold shadow-sm border border-teal-200">
                 <Sparkles className="w-4 h-4 text-teal-600" />
-                <span>Pediatric Center of Clinical Excellence & Family Care</span>
+                <span>Pediatric Therapy Center</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
@@ -41,25 +41,25 @@ export const Home: React.FC = () => {
                 with Heart & Science.
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Mela Special Needs Center provides neurodiversity-affirming pediatric occupational, speech, sensory, and behavioral therapies in an inspiring, play-based environment designed for children to thrive.
+              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Neurodiversity-affirming pediatric occupational, speech, and behavioral therapy in a play-based clinical environment.
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
                   to="/services"
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-base shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 transition-all flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
                 >
-                  <span>Explore Therapy Services</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <span>Explore Services</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <Link
                   to="/login"
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow transition-all flex items-center justify-center gap-2 group"
                 >
-                  <span>Sign In to Platform</span>
-                  <ArrowRight className="w-5 h-5 text-teal-400 group-hover:translate-x-1 transition-transform" />
+                  <span>Sign In</span>
+                  <ArrowRight className="w-4 h-4 text-teal-400 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
@@ -67,15 +67,15 @@ export const Home: React.FC = () => {
               <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0 text-left">
                 <div>
                   <p className="text-2xl sm:text-3xl font-black text-slate-900">140+</p>
-                  <p className="text-xs text-slate-500 font-medium">Empowered Children</p>
+                  <p className="text-xs text-slate-500 font-medium">Children Served</p>
                 </div>
                 <div>
                   <p className="text-2xl sm:text-3xl font-black text-teal-600">100%</p>
-                  <p className="text-xs text-slate-500 font-medium">Licensed Specialists</p>
+                  <p className="text-xs text-slate-500 font-medium">Licensed Staff</p>
                 </div>
                 <div>
                   <p className="text-2xl sm:text-3xl font-black text-slate-900">1:1</p>
-                  <p className="text-xs text-slate-500 font-medium">Individualized Care</p>
+                  <p className="text-xs text-slate-500 font-medium">Individual Care</p>
                 </div>
               </div>
             </div>
@@ -90,35 +90,35 @@ export const Home: React.FC = () => {
                 <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                   <img
                     src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=800"
-                    alt="Pediatric therapist working warmly with child on fine motor play"
+                    alt="Pediatric therapy session"
                     className="w-full h-80 object-cover"
                   />
-                  <div className="p-6 bg-white space-y-3">
+                  <div className="p-5 bg-white space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200">
-                        Sensory Integration Lab
+                        Sensory Lab
                       </span>
-                      <span className="flex items-center gap-1 text-xs font-semibold text-amber-600">
+                      <span className="text-xs font-semibold text-amber-600">
                         ★★★★★ Family Rated
                       </span>
                     </div>
                     <p className="text-sm font-bold text-slate-900">
-                      "Liam has achieved greater independence and joyful confidence in just six months with Mela."
+                      "Liam gained joyful independence and confidence in just six months."
                     </p>
-                    <p className="text-xs text-slate-500">
-                      — Sarah J., Parent Guardian of Liam (Age 6)
+                    <p className="text-xs text-slate-400">
+                      — Sarah J., Parent Guardian
                     </p>
                   </div>
                 </div>
 
                 {/* Floating Achievement Badge */}
-                <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float hidden sm:flex">
-                  <div className="w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600">
-                    <Award className="w-6 h-6" />
+                <div className="absolute -bottom-6 -left-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float hidden sm:flex">
+                  <div className="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600">
+                    <Award className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-900">Objective Outcomes</p>
-                    <p className="text-[11px] text-teal-600 font-semibold">SOAP Clinical Progress Tracking</p>
+                    <p className="text-xs font-bold text-slate-900">Clinical Outcomes</p>
+                    <p className="text-[11px] text-teal-600 font-semibold">SOAP Progress Tracking</p>
                   </div>
                 </div>
               </div>
@@ -129,65 +129,65 @@ export const Home: React.FC = () => {
 
       {/* Core Philosophy Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-            Our Care Philosophy
+            Care Philosophy
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Comprehensive Pediatric Support, Designed Around Families
+          <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+            Comprehensive Pediatric Support
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
-            We don’t believe in one-size-fits-all treatments. Every child has distinct sensory profiles, communication styles, and joyful superpowers that guide their therapy pathway.
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Individualized therapy pathways tailored to each child's developmental profile.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-700">
-              <Activity className="w-6 h-6" />
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
+            <div className="w-11 h-11 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-700">
+              <Activity className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Sensory Integration</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Equipped with specialized swings, tactile walls, and crash zones to regulate vestibular and proprioceptive inputs.
+            <h3 className="text-base font-bold text-slate-900">Sensory Integration</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Vestibular, tactile, and proprioceptive regulation using swings and crash zones.
             </p>
             <Link to="/services" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
               Learn more <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center text-sky-700">
-              <MessageSquare className="w-6 h-6" />
+          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
+            <div className="w-11 h-11 rounded-2xl bg-sky-100 flex items-center justify-center text-sky-700">
+              <MessageSquare className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Speech & AAC Language</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Fostering functional communication, articulation, and high-tech tablet AAC adaptations for non-verbal voices.
+            <h3 className="text-base font-bold text-slate-900">Speech & AAC</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Functional communication, articulation, and AAC device support.
             </p>
             <Link to="/services" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
               Learn more <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-700">
-              <Smile className="w-6 h-6" />
+          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
+            <div className="w-11 h-11 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-700">
+              <Smile className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Affirming Behavior Care</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Positive-reinforcement strategies focusing on emotional regulation, self-advocacy, and school readiness.
+            <h3 className="text-base font-bold text-slate-900">Behavioral Care</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Positive reinforcement focusing on regulation and self-advocacy.
             </p>
             <Link to="/services" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
               Learn more <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700">
-              <Users className="w-6 h-6" />
+          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
+            <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700">
+              <Users className="w-5 h-5" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Parent Partnership</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Continuous caregiver coaching, home exercise routines, and live portal access to milestone notes and schedules.
+            <h3 className="text-base font-bold text-slate-900">Parent Partnership</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Caregiver coaching, home exercises, and progress tracking in the portal.
             </p>
             <Link to="/parent" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
               Parent Portal <ChevronRight className="w-3.5 h-3.5" />
@@ -199,18 +199,18 @@ export const Home: React.FC = () => {
       {/* Featured Programs Grid */}
       <section className="bg-slate-100/70 py-16 border-y border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-700">Our Clinical Offerings</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-teal-700">Clinical Offerings</span>
               <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-1">
-                Featured Therapy Programs
+                Featured Programs
               </h2>
             </div>
             <Link
               to="/programs"
               className="text-sm font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1"
             >
-              View all programs & clubs <ArrowRight className="w-4 h-4" />
+              All programs <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -230,10 +230,10 @@ export const Home: React.FC = () => {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{prog.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
                     {prog.description}
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-1.5 mb-6">
                     {prog.objectives.slice(0, 3).map((obj, i) => (
                       <li key={i} className="text-xs text-slate-600 flex items-start gap-2">
                         <CheckCircle className="w-3.5 h-3.5 text-teal-600 flex-shrink-0 mt-0.5" />
@@ -260,15 +260,15 @@ export const Home: React.FC = () => {
 
       {/* Multidisciplinary Team Teaser */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-xl mx-auto mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-            Dedicated Specialists
+            Specialists
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-2">
-            Meet Our Pediatric Clinical Leaders
+            Clinical Team
           </h2>
-          <p className="text-sm text-slate-600 mt-2">
-            Every therapist brings advanced university credentials, pediatric specialty certifications, and authentic compassion.
+          <p className="text-xs text-slate-500 mt-1">
+            Licensed pediatric specialists dedicated to child-centered care.
           </p>
         </div>
 
@@ -276,26 +276,26 @@ export const Home: React.FC = () => {
           {therapists.slice(0, 3).map((t) => (
             <div
               key={t.id}
-              className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all text-center space-y-4"
+              className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all text-center space-y-3"
             >
               <img
                 src={t.avatar}
                 alt={t.name}
-                className="w-24 h-24 rounded-full mx-auto object-cover ring-4 ring-teal-100"
+                className="w-20 h-20 rounded-full mx-auto object-cover ring-4 ring-teal-100"
               />
               <div>
-                <h3 className="text-lg font-bold text-slate-900">{t.name}</h3>
+                <h3 className="text-base font-bold text-slate-900">{t.name}</h3>
                 <p className="text-xs font-bold text-teal-600">{t.credentials}</p>
-                <p className="text-xs text-slate-500 mt-1">{t.title}</p>
+                <p className="text-xs text-slate-500">{t.title}</p>
               </div>
-              <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 {t.bio}
               </p>
-              <div className="pt-2 flex flex-wrap justify-center gap-1.5">
+              <div className="pt-1 flex flex-wrap justify-center gap-1.5">
                 {t.specializations.slice(0, 2).map((s, idx) => (
                   <span
                     key={idx}
-                    className="text-[11px] font-semibold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full"
+                    className="text-[10px] font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full"
                   >
                     {s}
                   </span>
@@ -305,12 +305,12 @@ export const Home: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <Link
             to="/team"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all"
           >
-            <span>View All Clinical Specialists</span>
+            <span>View All Specialists</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -318,30 +318,30 @@ export const Home: React.FC = () => {
 
       {/* Call To Action Box */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-8 sm:p-14 shadow-2xl relative overflow-hidden">
-          <div className="relative z-10 max-w-2xl space-y-5">
+        <div className="rounded-3xl bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+          <div className="relative z-10 max-w-xl space-y-4">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-400/30">
-              Begin Your Journey
+              Get Started
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
-              Ready to Discover How Mela Can Support Your Child’s Milestones?
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
+              Partner with Mela Today
             </h2>
-            <p className="text-slate-300 text-base leading-relaxed">
-              Schedule a comprehensive pediatric intake evaluation or explore our live management software demonstration to see our clinical workflows in action.
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Contact our clinical intake team or sign in to access the platform.
             </p>
-            <div className="pt-2 flex flex-wrap gap-4">
+            <div className="pt-2 flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm shadow-md transition-all flex items-center gap-2"
+                className="px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs shadow transition-all flex items-center gap-2"
               >
                 <PhoneCall className="w-4 h-4 text-teal-600" />
-                <span>Contact Our Intake Coordinator</span>
+                <span>Contact Intake</span>
               </Link>
               <Link
                 to="/login"
-                className="px-6 py-3.5 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-200 border border-teal-400/40 font-bold text-sm transition-all"
+                className="px-5 py-3 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-200 border border-teal-400/40 font-bold text-xs transition-all"
               >
-                Explore Demo Platform →
+                Sign In to Platform →
               </Link>
             </div>
           </div>

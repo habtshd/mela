@@ -115,10 +115,10 @@ export const SessionsPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/90 shadow-soft">
         <div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">
-            Therapy Sessions & SOAP Clinical Notes
+            Sessions & SOAP Notes
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Standardized pediatric progress records, milestone mastery scores, and printable family reports.
+            Clinical notes, milestone tracking, and reports.
           </p>
         </div>
 
@@ -261,8 +261,8 @@ export const SessionsPage: React.FC = () => {
       <Modal
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
-        title="Document SOAP Session Note"
-        subtitle="Record clinical observations and milestone progress score."
+        title="New SOAP Session"
+        subtitle="Clinical observations and progress notes."
         maxWidth="2xl"
       >
         <form onSubmit={handleAddSubmit} className="space-y-4">

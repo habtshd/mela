@@ -236,9 +236,9 @@ export const ChildrenManagement: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/90 shadow-soft">
         <div>
-          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Children Directory & Profiles</h1>
+          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Children Directory</h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Manage registered children, guardian contacts, diagnostic milestones, and assigned therapists.
+            Child records, diagnostic milestones, and assigned therapists.
           </p>
         </div>
 
@@ -247,7 +247,7 @@ export const ChildrenManagement: React.FC = () => {
           className="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-md shadow-teal-600/20 transition-all flex items-center justify-center gap-2"
         >
           <UserPlus className="w-4 h-4" />
-          <span>Register New Child</span>
+          <span>Add Child</span>
         </button>
       </div>
 
@@ -510,8 +510,8 @@ export const ChildrenManagement: React.FC = () => {
         <Modal
           isOpen={!!selectedChild}
           onClose={() => setSelectedChild(null)}
-          title={`${selectedChild.firstName} ${selectedChild.lastName}'s Comprehensive Profile`}
-          subtitle={`Enrolled: ${selectedChild.enrollmentDate} • Age: ${selectedChild.age} • Status: ${selectedChild.status.toUpperCase()}`}
+          title={`${selectedChild.firstName} ${selectedChild.lastName}`}
+          subtitle={`Age: ${selectedChild.age} • ${selectedChild.status.toUpperCase()}`}
           maxWidth="3xl"
         >
           <div className="space-y-6">
@@ -669,8 +669,8 @@ export const ChildrenManagement: React.FC = () => {
       <Modal
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
-        title="Register New Child Profile"
-        subtitle="Complete pediatric intake and clinical lead assignment."
+        title="Register Child"
+        subtitle="Intake and specialist assignment."
         maxWidth="2xl"
       >
         <form onSubmit={handleAddSubmit} className="space-y-4">

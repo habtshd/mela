@@ -18,51 +18,51 @@ export const Gallery: React.FC = () => {
   const facilityItems: FacilityItem[] = [
     {
       id: 'fac-1',
-      title: 'Sensory Gym Alpha (Vestibular & Proprioceptive)',
+      title: 'Sensory Gym Alpha',
       category: 'Sensory Gym',
       image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=800',
-      description: 'Our flagship 1,800 sq ft sensory gym with dual ceiling suspension beams supporting platform swings, hammock cocoons, bolster swings, and deep impact crash mats.',
-      features: ['Adjustable rotational swings', 'Padded crash zones', 'Dimmable warm circadian lighting', 'Acoustically damped walls']
+      description: 'Suspension beams with platform swings, hammock cocoons, and impact crash mats.',
+      features: ['Adjustable swings', 'Padded crash zones', 'Warm circadian lighting', 'Acoustic damping']
     },
     {
       id: 'fac-2',
-      title: 'Speech & AAC Communication Pod 1',
+      title: 'Speech & AAC Pod',
       category: 'Speech Pod',
       image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800',
-      description: 'Designed for distraction-free speech pathology, vocal play, and assistive AAC device instruction with interactive tablet stands and mirror-feedback stations.',
-      features: ['High-contrast communication walls', 'Oral motor feeding station', 'Mirror posture feedback', 'Noise-canceling acoustic doors']
+      description: 'Acoustically treated space for speech pathology, articulation, and AAC device practice.',
+      features: ['High-contrast walls', 'Oral motor station', 'Mirror feedback', 'Soundproof doors']
     },
     {
       id: 'fac-3',
-      title: 'Pediatric Motor & Gait Gym Beta',
+      title: 'Motor & Gait Gym Beta',
       category: 'Motor Room',
       image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=800',
-      description: 'Focused on pediatric physical therapy, core stabilization, balance beams, parallel gait training bars, and treadmills with unweighting body harnesses.',
-      features: ['Adjustable parallel walking bars', 'Peanut balls & balance discs', 'Treadmill with harness support', 'Orthotic fitting station']
+      description: 'Physical therapy space with balance beams, parallel gait bars, and unweighting treadmill.',
+      features: ['Parallel walking bars', 'Balance discs', 'Harness support treadmill', 'Orthotic station']
     },
     {
       id: 'fac-4',
-      title: 'Snoezelen Multi-Sensory Relaxation Lounge',
+      title: 'Multi-Sensory Lounge',
       category: 'Sensory Gym',
       image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=800',
-      description: 'A soothing sensory regulation haven equipped with color-changing bubble tubes, fiber-optic light curtains, weighted therapeutic blankets, and calm ambient ocean audio.',
-      features: ['Interactive color bubble tubes', 'Tactile fiber optic strands', 'Aromatherapy diffusion', 'Vibroacoustic water mattress']
+      description: 'Calming sensory haven with color-changing bubble tubes, fiber optics, and soothing sound.',
+      features: ['Bubble tubes', 'Tactile fiber optics', 'Aromatherapy', 'Vibroacoustic mattress']
     },
     {
       id: 'fac-5',
-      title: 'Family Observation & IEP Consultation Lounge',
+      title: 'Family Observation Lounge',
       category: 'Family Space',
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
-      description: 'A quiet, comfortable suite where parents can relax with coffee, observe sessions through one-way observation glass or high-res video monitors, and review progress notes.',
-      features: ['One-way observation windows', 'Encrypted parent live video monitors', 'High-speed Wi-Fi & tea bar', 'Sibling play corner']
+      description: 'Comfortable parent lounge with one-way observation glass and live session monitors.',
+      features: ['One-way observation', 'Live session monitors', 'Parent tea bar', 'Sibling play corner']
     },
     {
       id: 'fac-6',
-      title: 'Fine-Motor & Daily Living Skills Suite',
+      title: 'Daily Living Skills Suite',
       category: 'Motor Room',
       image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=800',
-      description: 'Simulates home environments for independent living therapy: adaptive dressing stations, buttoning boards, child-height kitchen counters, and sensory art tables.',
-      features: ['Adaptive utensil stations', 'Shoe-lacing & zipper practice boards', 'Low-stimulation lighting', 'Adaptive ergonomics seating']
+      description: 'Simulated home environment for independent living: dressing, buttoning, and food prep.',
+      features: ['Adaptive utensils', 'Zipper practice boards', 'Low-stimulation lighting', 'Adaptive seating']
     }
   ];
 
@@ -74,15 +74,15 @@ export const Gallery: React.FC = () => {
 
   return (
     <div className="space-y-16 py-12">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
         <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          World-Class Sensory Architecture
+          Facility
         </span>
         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3">
-          Facility & Sensory Rooms Tour
+          Sensory Rooms & Facility Tour
         </h1>
-        <p className="text-lg text-slate-600 leading-relaxed mt-4">
-          Every inch of Mela was custom-engineered to minimize sensory overload while providing enriching, joyful opportunities for movement, exploration, and speech.
+        <p className="text-base text-slate-600 leading-relaxed mt-2">
+          Designed to minimize sensory overload while fostering movement, play, and communication.
         </p>
 
         {/* Filter Tabs */}

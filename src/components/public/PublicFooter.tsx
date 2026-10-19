@@ -24,7 +24,7 @@ export const PublicFooter: React.FC = () => {
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Providing joyful, child-centered pediatric therapy services that celebrate every child's potential. We partner closely with families, schools, and specialists to foster lifelong independence and confidence.
+              Child-centered pediatric therapy and family support services.
             </p>
 
             <div className="pt-2 flex items-center gap-3 text-xs text-slate-400">
@@ -124,7 +124,7 @@ export const PublicFooter: React.FC = () => {
           </p>
 
           <div className="bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-center md:text-left text-[11px] text-slate-400 max-w-xl">
-            <strong className="text-teal-400">Frontend Demo Prototype Notice:</strong> Fictional patient data, sample staff bios, and simulated billing are presented solely for platform evaluation and review.
+            <strong className="text-teal-400">Demo Prototype:</strong> Simulated data for evaluation purposes.
           </div>
         </div>
       </div>

@@ -158,10 +158,10 @@ export const AppointmentsPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/90 shadow-soft">
         <div>
           <h1 className="text-2xl font-black text-slate-900 tracking-tight">
-            Pediatric Scheduling & Calendar
+            Appointments & Schedule
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Book 1-on-1 therapy rooms, sensory suites, view daily rosters, and manage reschedules.
+            Therapy sessions, room bookings, and calendar.
           </p>
         </div>
 
@@ -567,7 +567,7 @@ export const AppointmentsPage: React.FC = () => {
       <Modal
         isOpen={isScheduleModalOpen}
         onClose={() => setIsScheduleModalOpen(false)}
-        title="Schedule Clinical Appointment"
+        title="Book Appointment"
         maxWidth="lg"
       >
         <form onSubmit={handleScheduleSubmit} className="space-y-4">

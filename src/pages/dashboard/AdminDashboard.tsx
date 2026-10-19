@@ -117,8 +117,8 @@ export const AdminDashboard: React.FC = () => {
           </div>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             {isTherapistView
-              ? `You have ${todayAppointments.length} sessions scheduled today. 1 SOAP note pending sign-off.`
-              : `Overall center overview • ${activeChildrenCount} active child profiles • ${therapists.length} clinical specialists`}
+              ? `${todayAppointments.length} sessions today • 1 pending note`
+              : `${activeChildrenCount} active children • ${therapists.length} therapists`}
           </p>
         </div>
 
@@ -224,7 +224,7 @@ export const AdminDashboard: React.FC = () => {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-base font-bold text-slate-900">Weekly Appointment Volume</h3>
-              <p className="text-xs text-slate-500">Scheduled vs Completed sessions across current week</p>
+              <p className="text-xs text-slate-500">Scheduled vs Completed this week</p>
             </div>
             <div className="flex items-center gap-3 text-xs font-semibold">
               <span className="flex items-center gap-1 text-slate-500">
@@ -261,8 +261,8 @@ export const AdminDashboard: React.FC = () => {
         {/* Therapy Domain Distribution */}
         <div className="lg:col-span-5 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-4 flex flex-col justify-between">
           <div>
-            <h3 className="text-base font-bold text-slate-900">Caseload by Therapy Specialty</h3>
-            <p className="text-xs text-slate-500">Distribution of active pediatric therapy enrollments</p>
+            <h3 className="text-base font-bold text-slate-900">Caseload by Specialty</h3>
+            <p className="text-xs text-slate-500">Active enrollments by therapy domain</p>
           </div>
 
           <div className="h-56 w-full flex items-center justify-center">
@@ -311,8 +311,8 @@ export const AdminDashboard: React.FC = () => {
         <div className="lg:col-span-8 bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-slate-900">Today's Appointment Queue</h3>
-              <p className="text-xs text-slate-500">Sessions scheduled for Monday, Oct 19, 2026</p>
+              <h3 className="text-base font-bold text-slate-900">Today's Queue</h3>
+              <p className="text-xs text-slate-500">Monday, Oct 19, 2026</p>
             </div>
             <Link
               to="/appointments"
@@ -421,7 +421,7 @@ export const AdminDashboard: React.FC = () => {
               onClick={() => navigate('/reports')}
               className="w-full py-2 text-xs font-bold text-center text-slate-700 hover:text-teal-700 bg-slate-50 hover:bg-slate-100 rounded-xl transition-colors"
             >
-              View Full Clinical Audit Trail →
+              View Audit Trail →
             </button>
           </div>
         </div>

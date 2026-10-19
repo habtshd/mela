@@ -37,24 +37,24 @@ export const Services: React.FC = () => {
   return (
     <div className="space-y-16 py-12">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
         <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          Comprehensive Clinical Care
+          Clinical Care
         </span>
         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3">
           Pediatric Therapy Programs
         </h1>
-        <p className="text-lg text-slate-600 leading-relaxed mt-4">
-          Each therapy program is led by certified specialists and customized to your child's developmental profile, strengths, and daily routine.
+        <p className="text-base text-slate-600 leading-relaxed mt-2">
+          Specialized pediatric programs customized to your child's developmental goals.
         </p>
 
         {/* Category Filter Pills */}
-        <div className="mt-8 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 selectedCategory === cat
                   ? 'bg-teal-600 text-white shadow-md shadow-teal-600/20'
                   : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
@@ -109,7 +109,7 @@ export const Services: React.FC = () => {
 
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2">
-                      Expected Benefits for Families
+                      Expected Benefits
                     </h4>
                     <ul className="grid grid-cols-1 gap-2">
                       {prog.benefits.map((b, i) => (
@@ -149,54 +149,54 @@ export const Services: React.FC = () => {
       {/* How Evaluation Works */}
       <section className="bg-slate-100/70 py-16 border-y border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-700">The Mela Roadmap</span>
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <span className="text-xs font-bold uppercase tracking-wider text-teal-700">Roadmap</span>
             <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-1">
-              What to Expect From Day One
+              What to Expect
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
-              Our structured 4-step intake ensures comfortable transitions and customized milestones.
+            <p className="text-xs text-slate-500 mt-1">
+              Structured 4-step intake for comfortable transitions.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-3">
-              <span className="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 font-black text-sm flex items-center justify-center">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-2">
+              <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 01
               </span>
-              <h3 className="text-base font-bold text-slate-900">Intake Discovery Call</h3>
+              <h3 className="text-sm font-bold text-slate-900">Discovery Call</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                A 20-minute phone call to listen to your priorities, discuss developmental concerns, and explain our clinical modalities.
+                20-minute phone consultation to discuss developmental priorities.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-3">
-              <span className="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 font-black text-sm flex items-center justify-center">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-2">
+              <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 02
               </span>
-              <h3 className="text-base font-bold text-slate-900">Clinical Evaluation</h3>
+              <h3 className="text-sm font-bold text-slate-900">Clinical Evaluation</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                A warm, playful 60-minute sensory and diagnostic evaluation in our gym, assessing fine/gross motor skills or speech.
+                60-minute sensory and motor assessment in our gym.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-3">
-              <span className="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 font-black text-sm flex items-center justify-center">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-2">
+              <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 03
               </span>
-              <h3 className="text-base font-bold text-slate-900">Collaborative Care Plan</h3>
+              <h3 className="text-sm font-bold text-slate-900">Care Plan</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                We review the diagnostic report together, co-create measurable IEP/clinical goals, and assign your lead specialist.
+                Co-create measurable goals and clinical schedule.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-3">
-              <span className="w-9 h-9 rounded-xl bg-teal-100 text-teal-800 font-black text-sm flex items-center justify-center">
+            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-soft space-y-2">
+              <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 04
               </span>
-              <h3 className="text-base font-bold text-slate-900">Joyful Therapy & Home Diet</h3>
+              <h3 className="text-sm font-bold text-slate-900">Therapy & Progress</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Regular sessions begin! Parents track live SOAP progress notes and receive weekly bite-sized home activities.
+                Begin regular sessions with progress notes updated in the portal.
               </p>
             </div>
           </div>
@@ -205,26 +205,26 @@ export const Services: React.FC = () => {
 
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white rounded-3xl p-10 border border-slate-200/90 shadow-soft max-w-3xl mx-auto space-y-5">
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
-            Have Questions About Insurance or Schedules?
+        <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-soft max-w-2xl mx-auto space-y-4">
+          <h2 className="text-2xl font-black text-slate-900">
+            Questions About Coverage?
           </h2>
-          <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
-            Our clinical intake coordinators are available Monday through Friday to verify coverage and assist with superbills.
+          <p className="text-xs text-slate-600 max-w-lg mx-auto leading-relaxed">
+            Our intake coordinators assist with insurance verification and superbills.
           </p>
-          <div className="pt-2 flex justify-center gap-4">
+          <div className="pt-2 flex justify-center gap-3">
             <Link
               to="/contact"
-              className="px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2"
             >
-              <span>Schedule Consultation</span>
+              <span>Contact Intake</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/faq"
-              className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-all"
+              className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-all"
             >
-              Read Parent FAQs
+              Read FAQs
             </Link>
           </div>
         </div>

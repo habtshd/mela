@@ -38,15 +38,15 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="space-y-16 py-12">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
         <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          Get In Touch
+          Contact Us
         </span>
         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3">
-          We’re Here for Your Family
+          We’re Here to Help
         </h1>
-        <p className="text-lg text-slate-600 leading-relaxed mt-4">
-          Whether you’re exploring pediatric evaluations for the first time or seeking specialized sensory gym therapy, our friendly team is ready to guide you.
+        <p className="text-base text-slate-600 leading-relaxed mt-2">
+          Reach out to schedule an evaluation or learn more about our programs.
         </p>
       </section>
 
@@ -54,19 +54,19 @@ export const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Contact Details & Clinic Hours */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-soft space-y-6">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-soft space-y-5">
               <h2 className="text-xl font-bold text-slate-900">Mela Special Needs Center</h2>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Located in the child-friendly Wellness Pavilion with accessible reserved stroller and wheelchair parking adjacent to the main entrance.
+                Accessible stroller and wheelchair parking adjacent to the main entrance.
               </p>
 
-              <div className="space-y-4 text-xs text-slate-600">
+              <div className="space-y-3.5 text-xs text-slate-600">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-xl bg-teal-50 text-teal-700 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="block text-slate-900 font-semibold mb-0.5">Clinic Location</strong>
+                    <strong className="block text-slate-900 font-semibold mb-0.5">Address</strong>
                     <span>450 Wellness Pavilion Blvd, Suite 300<br />Healthcare Innovation Park, NY 10024</span>
                   </div>
                 </div>
@@ -76,9 +76,8 @@ export const Contact: React.FC = () => {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="block text-slate-900 font-semibold mb-0.5">Intake Hotline & Direct Phone</strong>
+                    <strong className="block text-slate-900 font-semibold mb-0.5">Phone</strong>
                     <span>(555) 720-MELA (6352)</span>
-                    <p className="text-[11px] text-teal-600 font-medium mt-0.5">Direct confidential intake extension: #1</p>
                   </div>
                 </div>
 
@@ -87,9 +86,8 @@ export const Contact: React.FC = () => {
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="block text-slate-900 font-semibold mb-0.5">Email Communications</strong>
+                    <strong className="block text-slate-900 font-semibold mb-0.5">Email</strong>
                     <span>intake@melaspecialneeds.org</span>
-                    <p className="text-[11px] text-slate-400">Encrypted HIPAA-compliant email</p>
                   </div>
                 </div>
 
@@ -98,22 +96,19 @@ export const Contact: React.FC = () => {
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <strong className="block text-slate-900 font-semibold mb-0.5">Clinical Center Operating Hours</strong>
-                    <span>Monday – Friday: 7:30 AM – 6:30 PM<br />Saturday: 8:30 AM – 2:00 PM<br />Sunday: Closed for Sensory Deep Sanitization</span>
+                    <strong className="block text-slate-900 font-semibold mb-0.5">Hours</strong>
+                    <span>Mon – Fri: 7:30 AM – 6:30 PM<br />Sat: 8:30 AM – 2:00 PM</span>
                   </div>
                 </div>
               </div>
 
               {/* Map Preview Mockup */}
               <div className="pt-2">
-                <div className="rounded-2xl overflow-hidden border border-slate-200 relative h-48 bg-slate-100 flex items-center justify-center text-center p-4">
+                <div className="rounded-2xl overflow-hidden border border-slate-200 relative h-40 bg-slate-100 flex items-center justify-center text-center p-4">
                   <div className="space-y-1 z-10">
-                    <MapPin className="w-8 h-8 text-teal-600 mx-auto animate-bounce" />
+                    <MapPin className="w-7 h-7 text-teal-600 mx-auto" />
                     <p className="text-xs font-bold text-slate-900">Healthcare Innovation Pavilion</p>
-                    <p className="text-[11px] text-slate-500">Suite 300 (Elevator Access Floor 3)</p>
-                    <span className="inline-block text-[10px] font-semibold text-teal-700 bg-teal-100 px-2.5 py-0.5 rounded-full mt-1">
-                      Free Family Parking in Lot B
-                    </span>
+                    <p className="text-[11px] text-slate-500">Suite 300 • Free Parking Lot B</p>
                   </div>
                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#0d9488_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 </div>
@@ -123,17 +118,17 @@ export const Contact: React.FC = () => {
 
           {/* Contact Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-soft">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-soft">
               {submitted ? (
-                <div className="text-center py-12 space-y-4 animate-in fade-in">
-                  <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
+                <div className="text-center py-10 space-y-3 animate-in fade-in">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900">Inquiry Received Successfully!</h3>
-                  <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong>{formData.parentName}</strong>. Our pediatric intake coordinator has received your message regarding <strong>{formData.childName || 'your child'}</strong> and will call you at <strong>{formData.phone}</strong>.
+                  <h3 className="text-xl font-black text-slate-900">Inquiry Received</h3>
+                  <p className="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+                    Thank you, <strong>{formData.parentName}</strong>. Our intake coordinator will contact you shortly.
                   </p>
-                  <div className="pt-4">
+                  <div className="pt-3">
                     <button
                       onClick={() => {
                         setSubmitted(false);
@@ -148,31 +143,31 @@ export const Contact: React.FC = () => {
                           message: ''
                         });
                       }}
-                      className="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs"
+                      className="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs"
                     >
                       Send Another Message
                     </button>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="border-b border-slate-100 pb-4">
-                    <h2 className="text-xl font-bold text-slate-900">Send an Intake Inquiry</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="border-b border-slate-100 pb-3">
+                    <h2 className="text-lg font-bold text-slate-900">Send an Inquiry</h2>
                     <p className="text-xs text-slate-500 mt-0.5">
-                      Tell us a little about your family and the developmental milestones you'd like to support.
+                      Connect with our clinical intake team.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 mb-1">Parent / Guardian Name *</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Sarah Jenkins"
+                        placeholder="Sarah Jenkins"
                         value={formData.parentName}
                         onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500"
                       />
                     </div>
                     <div>
@@ -183,12 +178,12 @@ export const Contact: React.FC = () => {
                         placeholder="(555) 000-0000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
                     <div className="sm:col-span-2">
                       <label className="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
                       <input
@@ -197,7 +192,7 @@ export const Contact: React.FC = () => {
                         placeholder="parent@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500"
                       />
                     </div>
                     <div>
@@ -205,66 +200,66 @@ export const Contact: React.FC = () => {
                       <input
                         type="text"
                         required
-                        placeholder="e.g. 6 years"
+                        placeholder="e.g. 6"
                         value={formData.childAge}
                         onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                        className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">Primary Therapy Interest</label>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">Therapy Interest</label>
                       <select
                         value={formData.serviceInterest}
                         onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
+                        className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 bg-white"
                       >
-                        <option value="Occupational Therapy (OT)">Occupational Therapy (Fine Motor & Sensory)</option>
-                        <option value="Speech & Language Therapy">Speech & Language Pathology / AAC</option>
+                        <option value="Occupational Therapy (OT)">Occupational Therapy (OT)</option>
+                        <option value="Speech & Language Therapy">Speech & Language / AAC</option>
                         <option value="Behavioral Therapy (ABA)">Applied Behavior Analysis (ABA)</option>
-                        <option value="Sensory Integration Gym">Sensory Integration Gym & Swings</option>
-                        <option value="Pediatric Physical Therapy">Pediatric Physical Therapy (PT)</option>
-                        <option value="Multidisciplinary Evaluation">Full Multi-Specialty Evaluation</option>
+                        <option value="Sensory Integration Gym">Sensory Integration Gym</option>
+                        <option value="Pediatric Physical Therapy">Physical Therapy (PT)</option>
+                        <option value="Multidisciplinary Evaluation">Full Evaluation</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">Preferred Time of Day</label>
+                      <label className="block text-xs font-semibold text-slate-700 mb-1">Preferred Timing</label>
                       <select
                         value={formData.preferredTime}
                         onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
+                        className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 bg-white"
                       >
-                        <option value="Morning (8am - 12pm)">Morning (8:00 AM – 12:00 PM)</option>
-                        <option value="Afternoon (12pm - 4pm)">Afternoon (12:00 PM – 4:00 PM)</option>
-                        <option value="Late Afternoon (4pm - 6:30pm)">Late Afternoon (4:00 PM – 6:30 PM)</option>
-                        <option value="Saturday Morning">Saturday Morning (8:30 AM – 1:00 PM)</option>
+                        <option value="Morning (8am - 12pm)">Morning (8 AM – 12 PM)</option>
+                        <option value="Afternoon (12pm - 4pm)">Afternoon (12 PM – 4 PM)</option>
+                        <option value="Late Afternoon (4pm - 6:30pm)">Late Afternoon (4 PM – 6:30 PM)</option>
+                        <option value="Saturday Morning">Saturday Morning</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Tell us about your child's needs or goals (Optional)
+                      Notes or Goals (Optional)
                     </label>
                     <textarea
-                      rows={4}
-                      placeholder="Share any current developmental diagnoses, speech goals, sensory preferences, or questions you have for our therapists..."
+                      rows={3}
+                      placeholder="Current diagnoses, goals, or questions..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500"
                     />
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-1">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-md shadow-teal-600/20 transition-all flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow transition-all flex items-center justify-center gap-2"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>Submit Intake Inquiry</span>
+                      <Send className="w-3.5 h-3.5" />
+                      <span>Submit Inquiry</span>
                     </button>
                   </div>
                 </form>

@@ -100,15 +100,15 @@ export const BillingPage: React.FC = () => {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/90 shadow-soft">
         <div>
-          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Billing & Claims Management</h1>
+          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Billing & Invoices</h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Simulated pediatric invoices, superbills for insurance reimbursement, and demo payment records.
+            Invoices, superbills, and payment tracking.
           </p>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-xl">
-            🔒 Simulated Financial Module
+            🔒 Demo Mode
           </span>
         </div>
       </div>
