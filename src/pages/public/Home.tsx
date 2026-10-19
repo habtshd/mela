@@ -89,8 +89,8 @@ export const Home: React.FC = () => {
                 {/* Main Image Card */}
                 <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800"
-                    alt="Pediatric therapy session with warm, smiling therapist and child"
+                    src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=800"
+                    alt="Pediatric sensory and play therapy development session with child"
                     className="w-full h-80 object-cover"
                   />
                   <div className="p-6 bg-white space-y-3">

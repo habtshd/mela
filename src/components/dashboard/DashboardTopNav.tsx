@@ -184,7 +184,7 @@ export const DashboardTopNav: React.FC<TopNavProps> = ({ setMobileOpen }) => {
 
   return (
     <>
-      <header className="h-16 bg-white border-b border-slate-200/90 px-4 sm:px-6 flex items-center justify-between sticky top-[37px] z-30 shadow-sm no-print">
+      <header className="h-16 bg-white border-b border-slate-200/90 px-4 sm:px-6 flex items-center justify-between sticky top-[31px] z-30 shadow-sm no-print">
         {/* Left: Mobile hamburger & Search bar */}
         <div className="flex items-center gap-3 flex-1 max-w-lg">
           <button

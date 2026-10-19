@@ -10,9 +10,6 @@ import {
   ExternalLink,
   Sparkles,
   ChevronDown,
-  HelpCircle,
-  CheckCircle2,
-  ArrowRight,
   BookOpen
 } from 'lucide-react';
 import { Modal } from './Modal';
@@ -47,117 +44,110 @@ export const DemoRoleBanner: React.FC = () => {
     return (
       <button
         onClick={() => setCollapsed(false)}
-        className="fixed top-2 right-4 z-50 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 hover:bg-slate-800 transition-all no-print border border-slate-700"
+        className="fixed top-2 right-4 z-50 bg-slate-900/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 hover:bg-slate-800 transition-all no-print border border-slate-700"
       >
-        <Sparkles className="w-3.5 h-3.5 text-teal-400" />
-        Demo Controls
-        <ChevronDown className="w-3.5 h-3.5" />
+        <Sparkles className="w-3 h-3 text-teal-400" />
+        Demo Roles
+        <ChevronDown className="w-3 h-3" />
       </button>
     );
   }
 
   return (
     <>
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-teal-950 text-white text-xs py-2 px-3 sm:px-6 shadow-md border-b border-teal-800/40 sticky top-0 z-50 no-print">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div className="bg-slate-900 text-white text-[11px] py-1.5 px-3 sm:px-6 border-b border-slate-800 sticky top-0 z-50 no-print">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          {/* Left: Persona badge */}
           <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+            <span className="font-bold text-teal-300 uppercase tracking-wider text-[10px]">
+              Demo
             </span>
-            <span className="font-bold tracking-wide uppercase text-[10px] text-teal-300 bg-teal-900/60 px-2 py-0.5 rounded border border-teal-700/50">
-              Interactive Demo
-            </span>
-            <span className="text-slate-300 hidden md:inline">
-              Active Persona: <strong className="text-white font-medium">{currentUser.name}</strong> ({currentUser.title})
+            <span className="text-slate-400 hidden sm:inline">
+              User: <strong className="text-white font-medium">{currentUser.name}</strong>
             </span>
           </div>
 
-          {/* Quick Persona Switcher */}
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <button
-              onClick={() => setShowGuideModal(true)}
-              className="px-2.5 py-1 rounded-md bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 border border-teal-400/30 font-semibold flex items-center gap-1.5"
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>Pitch Guide</span>
-            </button>
-
-            <div className="h-4 w-[1px] bg-slate-700 mx-1 hidden sm:block"></div>
-
-            <span className="text-slate-400 text-[11px] mr-1 hidden sm:inline">Role:</span>
-
+          {/* Right: Quick Role Switcher Buttons */}
+          <div className="flex items-center gap-1.5">
             <button
               onClick={() => handleRoleSelect('admin')}
-              className={`px-2.5 py-1 rounded-md font-medium flex items-center gap-1.5 transition-all ${
+              className={`px-2 py-0.5 rounded text-[11px] font-medium flex items-center gap-1 transition-all ${
                 currentRole === 'admin'
-                  ? 'bg-teal-500 text-slate-950 shadow font-semibold'
-                  : 'bg-slate-800/80 text-slate-200 hover:bg-slate-700 border border-slate-700'
+                  ? 'bg-teal-500 text-slate-950 font-bold'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
-              title="Switch to Administrator view (Dr. Hanna Vance)"
+              title="Administrator view (Dr. Hanna Vance)"
             >
-              <Shield className="w-3.5 h-3.5" />
+              <Shield className="w-3 h-3" />
               <span>Admin</span>
             </button>
 
             <button
               onClick={() => handleRoleSelect('therapist')}
-              className={`px-2.5 py-1 rounded-md font-medium flex items-center gap-1.5 transition-all ${
+              className={`px-2 py-0.5 rounded text-[11px] font-medium flex items-center gap-1 transition-all ${
                 currentRole === 'therapist'
-                  ? 'bg-teal-500 text-slate-950 shadow font-semibold'
-                  : 'bg-slate-800/80 text-slate-200 hover:bg-slate-700 border border-slate-700'
+                  ? 'bg-teal-500 text-slate-950 font-bold'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
-              title="Switch to Therapist view (Michael Chen - Caseload, SOAP Notes)"
+              title="Therapist view (Michael Chen - Caseload, SOAP Notes)"
             >
-              <Stethoscope className="w-3.5 h-3.5" />
+              <Stethoscope className="w-3 h-3" />
               <span>Therapist</span>
             </button>
 
             <button
               onClick={() => handleRoleSelect('parent')}
-              className={`px-2.5 py-1 rounded-md font-medium flex items-center gap-1.5 transition-all ${
+              className={`px-2 py-0.5 rounded text-[11px] font-medium flex items-center gap-1 transition-all ${
                 currentRole === 'parent'
-                  ? 'bg-teal-500 text-slate-950 shadow font-semibold'
-                  : 'bg-slate-800/80 text-slate-200 hover:bg-slate-700 border border-slate-700'
+                  ? 'bg-teal-500 text-slate-950 font-bold'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
-              title="Switch to Parent Portal (Sarah Jenkins - Liam's care, appointments)"
+              title="Parent Portal (Sarah Jenkins - Liam's care)"
             >
-              <Users className="w-3.5 h-3.5" />
-              <span>Parent Portal</span>
+              <Users className="w-3 h-3" />
+              <span>Parent</span>
             </button>
 
-            <div className="h-4 w-[1px] bg-slate-700 mx-1 hidden sm:block"></div>
+            <span className="text-slate-700">|</span>
+
+            <button
+              onClick={() => setShowGuideModal(true)}
+              className="px-2 py-0.5 rounded text-[11px] text-teal-300 hover:text-teal-200 hover:bg-slate-800 flex items-center gap-1 font-semibold"
+            >
+              <BookOpen className="w-3 h-3" />
+              <span className="hidden sm:inline">Pitch Guide</span>
+            </button>
 
             {isPublicPage ? (
               <button
                 onClick={() => navigate('/dashboard')}
-                className="px-2.5 py-1 rounded-md bg-teal-600/30 hover:bg-teal-600/50 text-teal-200 border border-teal-500/30 flex items-center gap-1 font-medium"
+                className="px-2 py-0.5 rounded text-[11px] bg-teal-600/30 hover:bg-teal-600/50 text-teal-200 border border-teal-500/30 flex items-center gap-1 font-medium"
               >
                 <span>Dashboard</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-2.5 h-2.5" />
               </button>
             ) : (
               <button
                 onClick={() => navigate('/')}
-                className="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1 font-medium"
+                className="px-2 py-0.5 rounded text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1 font-medium"
               >
                 <span>Website</span>
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="w-2.5 h-2.5" />
               </button>
             )}
 
             <button
               onClick={() => setShowConfirmReset(true)}
-              className="px-2 py-1 rounded-md text-slate-400 hover:text-amber-300 hover:bg-slate-800 transition-colors flex items-center gap-1 ml-1"
-              title="Reset demo data to initial pristine values"
+              className="p-1 text-slate-400 hover:text-amber-400 hover:bg-slate-800 rounded transition-colors"
+              title="Reset sample records to initial state"
             >
               <RotateCcw className="w-3 h-3" />
-              <span className="hidden lg:inline">Reset</span>
             </button>
 
             <button
               onClick={() => setCollapsed(true)}
-              className="text-slate-400 hover:text-white px-1.5 py-1 text-[11px]"
+              className="p-1 text-slate-400 hover:text-white rounded text-[10px]"
               title="Minimize banner"
             >
               ✕
