@@ -1,21 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Heart, Menu, X, ArrowRight, Phone, Calendar } from 'lucide-react';
-import { Modal } from '../common/Modal';
-import { useDemo } from '../../context/DemoContext';
+import { Heart, Menu, X, ArrowRight } from 'lucide-react';
 
 export const PublicHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [consultModalOpen, setConsultModalOpen] = useState(false);
-  const [consultForm, setConsultForm] = useState({
-    parentName: '',
-    childAge: '',
-    phone: '',
-    email: '',
-    areaOfInterest: 'Occupational Therapy',
-    notes: ''
-  });
-  const { showToast } = useDemo();
   const location = useLocation();
 
   const navLinks = [
@@ -29,23 +17,8 @@ export const PublicHeader: React.FC = () => {
     { label: 'Contact', href: '/contact' }
   ];
 
-  const handleConsultSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setConsultModalOpen(false);
-    showToast(`Thank you, ${consultForm.parentName}! Your consultation inquiry has been recorded. Our clinical intake coordinator will call you.`, 'success');
-    setConsultForm({
-      parentName: '',
-      childAge: '',
-      phone: '',
-      email: '',
-      areaOfInterest: 'Occupational Therapy',
-      notes: ''
-    });
-  };
-
   return (
-    <>
-      <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-40 transition-all">
+    <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-40 transition-all">
         {/* Main Navbar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -143,110 +116,5 @@ export const PublicHeader: React.FC = () => {
           </div>
         )}
       </header>
-
-      {/* Consultation Modal */}
-      <Modal
-        isOpen={consultModalOpen}
-        onClose={() => setConsultModalOpen(false)}
-        title="Schedule a Pediatric Intake Consultation"
-        subtitle="Meet our clinical team to discuss your child’s unique developmental needs."
-        maxWidth="lg"
-      >
-        <form onSubmit={handleConsultSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Parent / Guardian Name *</label>
-              <input
-                type="text"
-                required
-                placeholder="e.g. Rachel Adams"
-                value={consultForm.parentName}
-                onChange={(e) => setConsultForm({ ...consultForm, parentName: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Child's Age *</label>
-              <input
-                type="text"
-                required
-                placeholder="e.g. 5 years old"
-                value={consultForm.childAge}
-                onChange={(e) => setConsultForm({ ...consultForm, childAge: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Phone Number *</label>
-              <input
-                type="tel"
-                required
-                placeholder="(555) 000-0000"
-                value={consultForm.phone}
-                onChange={(e) => setConsultForm({ ...consultForm, phone: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
-              <input
-                type="email"
-                required
-                placeholder="you@example.com"
-                value={consultForm.email}
-                onChange={(e) => setConsultForm({ ...consultForm, email: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1">Primary Area of Interest</label>
-            <select
-              value={consultForm.areaOfInterest}
-              onChange={(e) => setConsultForm({ ...consultForm, areaOfInterest: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
-            >
-              <option value="Occupational Therapy">Occupational Therapy & Fine Motor</option>
-              <option value="Speech Therapy">Speech, Language & AAC</option>
-              <option value="Behavioral Therapy">Applied Behavior Analysis (ABA)</option>
-              <option value="Sensory Gym">Sensory Integration Gym</option>
-              <option value="Physical Therapy">Pediatric Physical Therapy</option>
-              <option value="Comprehensive Evaluation">Full Multidisciplinary Evaluation</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1">Tell us briefly about your child's goals</label>
-            <textarea
-              rows={3}
-              placeholder="Any current diagnoses, speech or sensory concerns, or specific developmental milestones you want to target..."
-              value={consultForm.notes}
-              onChange={(e) => setConsultForm({ ...consultForm, notes: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-          </div>
-
-          <div className="pt-2 flex justify-end gap-3">
-            <button
-              type="button"
-              onClick={() => setConsultModalOpen(false)}
-              className="px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-6 py-2.5 text-sm font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-xl shadow-md shadow-teal-600/20 transition-colors"
-            >
-              Request Free Consultation
-            </button>
-          </div>
-        </form>
-      </Modal>
-    </>
   );
 };
