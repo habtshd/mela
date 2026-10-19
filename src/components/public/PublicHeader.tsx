@@ -46,28 +46,6 @@ export const PublicHeader: React.FC = () => {
   return (
     <>
       <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-40 transition-all">
-        {/* Top Info Bar */}
-        <div className="bg-slate-50 border-b border-slate-100 py-1.5 px-4 text-xs text-slate-600 hidden md:block">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-1.5 font-medium">
-                <Phone className="w-3.5 h-3.5 text-teal-600" />
-                Intake & Family Support: (555) 720-MELA
-              </span>
-              <span className="text-slate-400">|</span>
-              <span className="text-slate-500">
-                Mon - Fri: 7:30 AM – 6:30 PM • Sat: 8:30 AM – 2:00 PM
-              </span>
-            </div>
-            <div className="flex items-center gap-4 text-xs font-medium">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200/60">
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
-                Now Accepting New Pediatric Evaluations
-              </span>
-            </div>
-          </div>
-        </div>
-
         {/* Main Navbar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -106,16 +84,8 @@ export const PublicHeader: React.FC = () => {
               })}
             </nav>
 
-            {/* Actions */}
+            {/* Actions: Sign In Only */}
             <div className="hidden sm:flex items-center gap-3">
-              <button
-                onClick={() => setConsultModalOpen(true)}
-                className="px-4 py-2.5 rounded-xl text-sm font-semibold text-teal-800 bg-teal-50 hover:bg-teal-100 border border-teal-200/80 transition-all flex items-center gap-2"
-              >
-                <Calendar className="w-4 h-4 text-teal-600" />
-                <span>Book Evaluation</span>
-              </button>
-
               <Link
                 to="/login"
                 className="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 shadow-sm shadow-slate-900/10 hover:shadow-md transition-all flex items-center gap-2 group"
@@ -162,15 +132,6 @@ export const PublicHeader: React.FC = () => {
               </Link>
             ))}
             <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setConsultModalOpen(true);
-                }}
-                className="w-full py-3 rounded-xl text-sm font-semibold text-teal-700 bg-teal-50 border border-teal-200 text-center"
-              >
-                Book Intake Evaluation
-              </button>
               <Link
                 to="/login"
                 onClick={() => setMobileMenuOpen(false)}
