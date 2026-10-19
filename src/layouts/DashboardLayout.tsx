@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { DemoRoleBanner } from '../components/common/DemoRoleBanner';
 import { DashboardSidebar } from '../components/dashboard/DashboardSidebar';
 import { DashboardTopNav } from '../components/dashboard/DashboardTopNav';
 import { ToastContainer } from '../components/common/ToastContainer';
@@ -10,7 +9,6 @@ export const DashboardLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800">
-      <DemoRoleBanner />
       <div className="flex-1 flex overflow-hidden">
         <DashboardSidebar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">

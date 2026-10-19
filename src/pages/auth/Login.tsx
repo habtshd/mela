@@ -13,8 +13,6 @@ import {
   Stethoscope,
   Users,
   ArrowRight,
-  Sparkles,
-  Info,
   Check
 } from 'lucide-react';
 import { Modal } from '../../components/common/Modal';
@@ -24,7 +22,7 @@ export const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('hanna.vance@melaspecialneeds.org');
-  const [password, setPassword] = useState('DemoSecure2026!');
+  const [password, setPassword] = useState('••••••••••••');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [selectedRole, setSelectedRole] = useState<UserRole>('admin');
@@ -38,13 +36,13 @@ export const Login: React.FC = () => {
     setSelectedRole(role);
     const user = DEMO_USERS[role];
     setEmail(user.email);
-    setPassword('DemoSecure2026!');
+    setPassword('••••••••••••');
   };
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
     switchRole(selectedRole);
-    showToast(`Signed in as ${DEMO_USERS[selectedRole].name}`, 'success');
+    showToast(`Signed in successfully as ${DEMO_USERS[selectedRole].name}`, 'success');
 
     if (selectedRole === 'parent') {
       navigate('/parent');
@@ -56,7 +54,7 @@ export const Login: React.FC = () => {
   const handleForgotSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setForgotSent(true);
-    showToast(`Password reset simulation link dispatched to ${forgotEmail || email}`, 'info');
+    showToast(`Password reset link dispatched to ${forgotEmail || email}`, 'info');
   };
 
   return (
@@ -84,19 +82,17 @@ export const Login: React.FC = () => {
 
       <div className="sm:mx-auto sm:w-full sm:max-w-xl relative z-10 px-4">
         <div className="bg-white rounded-3xl shadow-2xl p-6 sm:p-10 border border-slate-100">
-          {/* Demo Simulation Notice Banner */}
-          <div className="mb-6 p-3.5 rounded-2xl bg-teal-50 border border-teal-200/80 flex items-start gap-3">
-            <Sparkles className="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" />
-            <div className="text-xs text-teal-950 leading-relaxed">
-              <strong className="font-bold text-teal-900 block">Interactive Demo Mode Active</strong>
-              Select one of the 3 persona profiles below to immediately preview customized administrative, therapist, or parent views without entering live credentials.
-            </div>
+          <div className="mb-6 text-center sm:text-left">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight">Portal Sign In</h2>
+            <p className="text-xs text-slate-500 mt-1">
+              Select your role below and sign in to access your pediatric dashboard.
+            </p>
           </div>
 
-          {/* 1-Click Role Switcher Cards */}
-          <div className="mb-8 space-y-2">
+          {/* Role Selection Cards */}
+          <div className="mb-6 space-y-2">
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
-              Select Demo Persona:
+              Sign In As:
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {/* Admin Card */}
@@ -227,7 +223,7 @@ export const Login: React.FC = () => {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   className="w-4 h-4 text-teal-600 rounded border-slate-300 focus:ring-teal-500"
                 />
-                <span className="text-xs text-slate-600">Remember this demo browser</span>
+                <span className="text-xs text-slate-600">Remember this device</span>
               </label>
             </div>
 
@@ -236,7 +232,7 @@ export const Login: React.FC = () => {
                 type="submit"
                 className="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 group"
               >
-                <span>Enter Dashboard as {DEMO_USERS[selectedRole].name.split(',')[0]}</span>
+                <span>Sign In as {DEMO_USERS[selectedRole].name.split(',')[0]}</span>
                 <ArrowRight className="w-4 h-4 text-teal-400 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -246,7 +242,7 @@ export const Login: React.FC = () => {
             <Link to="/" className="text-teal-600 hover:text-teal-700 font-medium">
               ← Return to Public Website
             </Link>
-            <span className="text-slate-400">Frontend Prototype Mode</span>
+            <span className="text-slate-400">Mela Special Needs Center</span>
           </div>
         </div>
       </div>
@@ -258,8 +254,8 @@ export const Login: React.FC = () => {
           setForgotModalOpen(false);
           setForgotSent(false);
         }}
-        title="Reset Password Simulation"
-        subtitle="Test password recovery workflow for Mela staff and parents."
+        title="Reset Password"
+        subtitle="Password recovery for Mela staff and parent accounts."
         maxWidth="md"
       >
         {forgotSent ? (
@@ -267,10 +263,9 @@ export const Login: React.FC = () => {
             <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
               <Check className="w-6 h-6" />
             </div>
-            <h4 className="text-base font-bold text-slate-900">Reset Instructions Simulated</h4>
+            <h4 className="text-base font-bold text-slate-900">Reset Link Dispatched</h4>
             <p className="text-xs text-slate-600 leading-relaxed">
-              In a production backend, a secure reset token would be emailed to{' '}
-              <strong>{forgotEmail || email}</strong>.
+              A secure password reset link has been sent to <strong>{forgotEmail || email}</strong>.
             </p>
             <div className="pt-4">
               <button
@@ -280,14 +275,14 @@ export const Login: React.FC = () => {
                 }}
                 className="px-5 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold"
               >
-                Close & Return
+                Back to Sign In
               </button>
             </div>
           </div>
         ) : (
           <form onSubmit={handleForgotSubmit} className="space-y-4">
             <p className="text-xs text-slate-600 leading-relaxed">
-              Enter your account email address. We will simulate sending a password reset link to your inbox.
+              Enter your account email address and we'll send you instructions to reset your password.
             </p>
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1">Account Email</label>

@@ -56,10 +56,10 @@ export const Home: React.FC = () => {
 
                 <Link
                   to="/login"
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2 group"
                 >
-                  <span>Launch Management Demo</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-300 font-medium">Live</span>
+                  <span>Sign In to Platform</span>
+                  <ArrowRight className="w-5 h-5 text-teal-400 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
@@ -89,8 +89,8 @@ export const Home: React.FC = () => {
                 {/* Main Image Card */}
                 <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=800"
-                    alt="Pediatric sensory and play therapy development session with child"
+                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=800"
+                    alt="Pediatric therapist working warmly with child on fine motor play"
                     className="w-full h-80 object-cover"
                   />
                   <div className="p-6 bg-white space-y-3">
