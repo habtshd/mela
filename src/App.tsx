@@ -31,14 +31,24 @@ import { SettingsPage } from './pages/settings/SettingsPage';
 // Parent Portal
 import { ParentPortal } from './pages/parent/ParentPortal';
 
+// Luxury Real Estate Showcase
+import { RealEstatePage } from './pages/realestate/RealEstatePage';
+
 export function App() {
   return (
     <DemoProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public Website Routes */}
+          {/* Default Luxury Real Estate Homepage in White Mode */}
+          <Route path="/" element={<RealEstatePage />} />
+          <Route path="/real-estate" element={<RealEstatePage />} />
+          <Route path="/realstate" element={<RealEstatePage />} />
+          <Route path="/temer" element={<RealEstatePage />} />
+
+          {/* Clinic & Pediatric Platform Routes */}
           <Route element={<PublicLayout />}>
-            <Route path="/" element={<Home />} />
+            <Route path="/clinic" element={<Home />} />
+            <Route path="/mela" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/team" element={<Team />} />
