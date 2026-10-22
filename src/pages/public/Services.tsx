@@ -19,33 +19,42 @@ export const Services: React.FC = () => {
   const { programs } = useDemo();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const categories = ['All', 'Occupational Therapy', 'Speech Therapy', 'Behavioral Health', 'Sensory Therapy', 'Social Skills', 'Physical Therapy'];
+  const categories = [
+    'All',
+    'Occupational Therapy',
+    'Speech Therapy',
+    'Behavioral Health',
+    'Sensory Therapy',
+    'Inclusive Education',
+    'Early Childhood'
+  ];
 
   const filteredPrograms = selectedCategory === 'All'
     ? programs
     : programs.filter((p) => p.category === selectedCategory);
 
   const iconsMap: Record<string, React.ReactNode> = {
-    Activity: <Activity className="w-6 h-6 text-teal-600" />,
-    MessageSquare: <MessageSquare className="w-6 h-6 text-sky-600" />,
-    HeartHandshake: <HeartHandshake className="w-6 h-6 text-amber-600" />,
-    Sparkles: <Sparkles className="w-6 h-6 text-purple-600" />,
-    Users: <Users className="w-6 h-6 text-emerald-600" />,
-    Footprints: <Footprints className="w-6 h-6 text-rose-600" />
+    Activity: <Activity className="w-6 h-6 text-brand-600" />,
+    MessageSquare: <MessageSquare className="w-6 h-6 text-gold-600" />,
+    HeartHandshake: <HeartHandshake className="w-6 h-6 text-brand-600" />,
+    Sparkles: <Sparkles className="w-6 h-6 text-gold-600" />,
+    Users: <Users className="w-6 h-6 text-brand-600" />,
+    Footprints: <Footprints className="w-6 h-6 text-gold-600" />
   };
 
   return (
     <div className="space-y-16 py-12">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          Clinical Care
-        </span>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-900 text-xs font-bold border border-brand-200">
+          <img src="/logo.png" alt="Mela Logo" className="w-5 h-5 object-contain" />
+          <span>አገልግሎቶቻችን • Clinical & Educational Care</span>
+        </div>
         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3">
-          Pediatric Therapy Programs
+          Specialized Therapy & School Support
         </h1>
-        <p className="text-base text-slate-600 leading-relaxed mt-2">
-          Specialized pediatric programs customized to your child's developmental goals.
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed mt-2">
+          Evidence-based pediatric programs in Addis Ababa: In-Center Clinical Therapy, In-Home Family Interventions, and Dedicated School Shadow Teaching.
         </p>
 
         {/* Category Filter Pills */}
@@ -164,9 +173,9 @@ export const Services: React.FC = () => {
               <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 01
               </span>
-              <h3 className="text-sm font-bold text-slate-900">Discovery Call</h3>
+              <h3 className="text-sm font-bold text-slate-900">Consultation Call</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                20-minute phone consultation to discuss developmental priorities.
+                Connect via +251 717 484 604 or Telegram to discuss developmental priorities.
               </p>
             </div>
 
@@ -174,9 +183,9 @@ export const Services: React.FC = () => {
               <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 02
               </span>
-              <h3 className="text-sm font-bold text-slate-900">Clinical Evaluation</h3>
+              <h3 className="text-sm font-bold text-slate-900">Comprehensive Assessment</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                60-minute sensory and motor assessment in our gym.
+                In-depth speech, motor, sensory, and behavioral evaluation by our specialists.
               </p>
             </div>
 
@@ -184,9 +193,9 @@ export const Services: React.FC = () => {
               <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 03
               </span>
-              <h3 className="text-sm font-bold text-slate-900">Care Plan</h3>
+              <h3 className="text-sm font-bold text-slate-900">Customized Plan (IEP)</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Co-create measurable goals and clinical schedule.
+                Co-create structured therapy goals, home routines, and school accommodations.
               </p>
             </div>
 
@@ -194,9 +203,9 @@ export const Services: React.FC = () => {
               <span className="w-8 h-8 rounded-xl bg-teal-100 text-teal-800 font-black text-xs flex items-center justify-center">
                 04
               </span>
-              <h3 className="text-sm font-bold text-slate-900">Therapy & Progress</h3>
+              <h3 className="text-sm font-bold text-slate-900">Therapy & School Inclusion</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Begin regular sessions with progress notes updated in the portal.
+                Regular center sessions, home caregiver visits, and shadow teacher placement.
               </p>
             </div>
           </div>
@@ -207,24 +216,24 @@ export const Services: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-soft max-w-2xl mx-auto space-y-4">
           <h2 className="text-2xl font-black text-slate-900">
-            Questions About Coverage?
+            Schedule an Evaluation or Request a Shadow Teacher
           </h2>
-          <p className="text-xs text-slate-600 max-w-lg mx-auto leading-relaxed">
-            Our intake coordinators assist with insurance verification and superbills.
+          <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
+            Our clinical team serves families across Addis Ababa with clinic-based evaluations, in-home therapy, and school placements.
           </p>
-          <div className="pt-2 flex justify-center gap-3">
-            <Link
-              to="/contact"
+          <div className="pt-2 flex flex-wrap justify-center gap-3">
+            <a
+              href="tel:+251717484604"
               className="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow transition-all flex items-center gap-2"
             >
-              <span>Contact Intake</span>
+              <span>Call +251 717 484 604</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
             <Link
-              to="/faq"
-              className="px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition-all"
+              to="/contact"
+              className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-all"
             >
-              Read FAQs
+              Send Intake Form
             </Link>
           </div>
         </div>

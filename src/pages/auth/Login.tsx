@@ -4,7 +4,6 @@ import { useDemo } from '../../context/DemoContext';
 import { UserRole } from '../../types';
 import { DEMO_USERS } from '../../data/mockData';
 import {
-  Heart,
   Eye,
   EyeOff,
   Lock,
@@ -61,20 +60,25 @@ export const Login: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-teal-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Back Link */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center mb-6 relative z-10">
         <Link to="/" className="inline-flex items-center gap-3 group">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-500 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-transform">
-            <Heart className="w-6 h-6 fill-white/20" />
+          <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-2 flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+            <img
+              src="/logo.png"
+              alt="Mela Special Needs Service Logo"
+              className="w-full h-full object-contain drop-shadow"
+            />
           </div>
           <div className="text-left">
-            <span className="text-2xl font-black tracking-tight text-white flex items-center gap-1">
-              Mela <span className="text-teal-400">Special Needs</span>
+            <span className="text-2xl font-black tracking-tight text-white flex items-center gap-1.5">
+              Mela <span className="text-brand-400">Special Needs</span>
+              <span className="w-2 h-2 rounded-full bg-gold-400 inline-block shadow-sm"></span>
             </span>
             <p className="text-[11px] text-teal-300 font-medium tracking-wide">
-              Pediatric Care Management OS
+              Pediatric Care Management OS • Addis Ababa
             </p>
           </div>
         </Link>
@@ -154,7 +158,7 @@ export const Login: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="p-1.5 rounded-lg bg-indigo-100 text-indigo-800">
+                  <span className="p-1.5 rounded-lg bg-gold-100 text-gold-900 border border-gold-300">
                     <Users className="w-4 h-4" />
                   </span>
                   {selectedRole === 'parent' && (

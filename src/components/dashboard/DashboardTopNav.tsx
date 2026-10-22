@@ -426,7 +426,7 @@ export const DashboardTopNav: React.FC<TopNavProps> = ({ setMobileOpen }) => {
                       currentRole === 'parent' ? 'font-bold text-teal-700' : 'text-slate-700'
                     }`}
                   >
-                    <Users className="w-3.5 h-3.5 text-indigo-600" />
+                    <Users className="w-3.5 h-3.5 text-gold-600" />
                     Parent Portal (Liam's Mother)
                   </button>
                 </div>

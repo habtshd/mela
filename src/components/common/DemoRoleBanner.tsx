@@ -246,7 +246,7 @@ export const DemoRoleBanner: React.FC = () => {
               <div className="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-slate-900 text-sm">Step 4: Dedicated Parent Portal</span>
-                  <span className="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded">Family Retention</span>
+                  <span className="text-[10px] font-bold bg-gold-100 text-gold-900 border border-gold-300 px-2 py-0.5 rounded">Family Retention</span>
                 </div>
                 <p className="text-slate-600">
                   Switch to <strong>Parent Portal (Sarah Jenkins)</strong>. Highlight that parents only see their assigned child (Liam), track % goal completion in real time, view recommended home routines, chat with the specialist, and pay superbills online.

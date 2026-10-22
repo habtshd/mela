@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDemo } from '../../context/DemoContext';
-import { Award, Mail, Phone, Calendar, Heart, Shield } from 'lucide-react';
+import { Award, Mail, Phone, Calendar, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Team: React.FC = () => {
@@ -8,15 +8,16 @@ export const Team: React.FC = () => {
 
   return (
     <div className="space-y-16 py-12">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          Clinical Team
-        </span>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-900 text-xs font-bold border border-brand-200">
+          <img src="/logo.png" alt="Mela Logo" className="w-5 h-5 object-contain" />
+          <span>ባለሙያዎቻችን • Clinical & Educational Team</span>
+        </div>
         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3">
-          Pediatric Specialists
+          Pediatric & Special Needs Specialists
         </h1>
-        <p className="text-base text-slate-600 leading-relaxed mt-2">
-          Licensed specialists collaborating to deliver personalized pediatric care.
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed mt-2">
+          Led by founder and author Wanos Mesfin, our multidisciplinary team collaborates directly with Ethiopian families and schools to deliver transformative individual care.
         </p>
       </section>
 
@@ -64,22 +65,29 @@ export const Team: React.FC = () => {
                 <div className="space-y-1 text-xs text-slate-500 pt-3 border-t border-slate-100">
                   <p className="flex items-center gap-2">
                     <Shield className="w-3.5 h-3.5 text-teal-600" />
-                    <span>Location: {t.roomPreference || 'Main Clinic'}</span>
+                    <span>Location: {t.roomPreference || 'Addis Ababa Center & Home Visits'}</span>
                   </p>
                   <p className="flex items-center gap-2">
-                    <Heart className="w-3.5 h-3.5 text-rose-500" />
-                    <span>With Mela since {t.joinedYear}</span>
+                    <Phone className="w-3.5 h-3.5 text-brand-600" />
+                    <span>Direct: {t.phone}</span>
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 mt-3 border-t border-slate-100">
+              <div className="pt-4 mt-3 border-t border-slate-100 flex gap-2">
+                <a
+                  href={`tel:${t.phone.replace(/[^0-9+]/g, '')}`}
+                  className="flex-1 py-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-800 font-bold text-xs text-center transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <Phone className="w-3.5 h-3.5 text-teal-600" />
+                  <span>Call Direct</span>
+                </a>
                 <Link
                   to="/contact"
-                  className="w-full py-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-teal-800 font-bold text-xs text-center transition-colors flex items-center justify-center gap-1.5"
+                  className="flex-1 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs text-center transition-colors flex items-center justify-center gap-1.5"
                 >
-                  <Calendar className="w-3.5 h-3.5 text-teal-600" />
-                  <span>Request Session</span>
+                  <Calendar className="w-3.5 h-3.5 text-teal-400" />
+                  <span>Book Intake</span>
                 </Link>
               </div>
             </div>
@@ -91,23 +99,26 @@ export const Team: React.FC = () => {
       <section className="bg-slate-100/70 py-14 border-y border-slate-200/70">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <h2 className="text-2xl font-black text-slate-900">
-            Clinical Standards
+            Professional Standards & Certification
           </h2>
-          <p className="text-xs text-slate-600 leading-relaxed">
-            All therapists maintain active state licensure and specialized pediatric certifications.
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            All Mela therapists and shadow teachers hold certified degrees in Special Needs Education, Psychology, Speech Therapy, or Child Development, and undergo continuous supervision.
           </p>
           <div className="flex flex-wrap justify-center gap-2.5 text-xs font-semibold text-slate-700 pt-1">
             <span className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-slate-200">
-              ✓ NBCOT Board Certified (OTR)
+              ✓ MA in Special Needs & Inclusive Education
             </span>
             <span className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-slate-200">
-              ✓ ASHA Certified (CCC-SLP)
+              ✓ Certified Speech & Language Pathologists
             </span>
             <span className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-slate-200">
-              ✓ BACB Behavior Analysts (BCBA)
+              ✓ Applied Behavior Analysis (ABA) Specialists
             </span>
             <span className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-slate-200">
-              ✓ Pediatric Specialists (PCS)
+              ✓ CPD Accredited Inclusive School Facilitators
+            </span>
+            <span className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-slate-200">
+              ✓ Ethiopian Sign Language (EthSL) Certified
             </span>
           </div>
         </div>

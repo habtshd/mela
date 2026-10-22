@@ -90,11 +90,11 @@ export const AdminDashboard: React.FC = () => {
 
   // Therapy Domain Distribution
   const domainData = [
-    { name: 'Occupational (OT)', value: 35, color: '#0d9488' },
-    { name: 'Speech & AAC', value: 28, color: '#0284c7' },
-    { name: 'Applied Behavior (ABA)', value: 20, color: '#d97706' },
-    { name: 'Sensory Integration', value: 24, color: '#8b5cf6' },
-    { name: 'Physical Therapy (PT)', value: 15, color: '#10b981' }
+    { name: 'Occupational (OT)', value: 35, color: '#3B833A' },
+    { name: 'Speech & AAC', value: 28, color: '#F9E34D' },
+    { name: 'Applied Behavior (ABA)', value: 20, color: '#285427' },
+    { name: 'Sensory Integration', value: 24, color: '#dfc428' },
+    { name: 'Physical Therapy (PT)', value: 15, color: '#64b95e' }
   ];
 
   const handleQuickStatus = (aptId: string, status: 'completed' | 'cancelled') => {
@@ -228,10 +228,10 @@ export const AdminDashboard: React.FC = () => {
             </div>
             <div className="flex items-center gap-3 text-xs font-semibold">
               <span className="flex items-center gap-1 text-slate-500">
-                <span className="w-2.5 h-2.5 rounded bg-teal-600 inline-block"></span> Completed
+                <span className="w-2.5 h-2.5 rounded bg-brand-600 inline-block"></span> Completed
               </span>
               <span className="flex items-center gap-1 text-slate-500">
-                <span className="w-2.5 h-2.5 rounded bg-teal-200 inline-block"></span> Scheduled
+                <span className="w-2.5 h-2.5 rounded bg-gold-400 inline-block"></span> Scheduled
               </span>
             </div>
           </div>
@@ -251,8 +251,8 @@ export const AdminDashboard: React.FC = () => {
                     fontSize: '12px'
                   }}
                 />
-                <Bar dataKey="completed" fill="#0d9488" radius={[6, 6, 0, 0]} name="Completed" />
-                <Bar dataKey="scheduled" fill="#99f6e4" radius={[6, 6, 0, 0]} name="Scheduled" />
+                <Bar dataKey="completed" fill="#3B833A" radius={[6, 6, 0, 0]} name="Completed" />
+                <Bar dataKey="scheduled" fill="#F9E34D" radius={[6, 6, 0, 0]} name="Scheduled" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -325,11 +325,11 @@ export const AdminDashboard: React.FC = () => {
           <div className="divide-y divide-slate-100 overflow-hidden">
             {todayAppointments.map((apt) => {
               const statusBadges = {
-                completed: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-                confirmed: 'bg-teal-50 text-teal-800 border-teal-200',
-                scheduled: 'bg-sky-50 text-sky-800 border-sky-200',
+                completed: 'bg-brand-100 text-brand-900 border-brand-300',
+                confirmed: 'bg-gold-100 text-gold-900 border-gold-300',
+                scheduled: 'bg-brand-50 text-brand-800 border-brand-200',
                 cancelled: 'bg-slate-100 text-slate-600 border-slate-200',
-                no_show: 'bg-rose-50 text-rose-800 border-rose-200'
+                no_show: 'bg-gold-50 text-gold-800 border-gold-200'
               };
 
               return (

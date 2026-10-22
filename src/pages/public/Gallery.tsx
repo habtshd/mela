@@ -5,7 +5,7 @@ import { Modal } from '../../components/common/Modal';
 interface FacilityItem {
   id: string;
   title: string;
-  category: 'Sensory Gym' | 'Speech Pod' | 'Motor Room' | 'Family Space';
+  category: 'Sensory Gym' | 'Speech Pod' | 'Training & CPD' | 'Home & School Space';
   image: string;
   description: string;
   features: string[];
@@ -18,55 +18,55 @@ export const Gallery: React.FC = () => {
   const facilityItems: FacilityItem[] = [
     {
       id: 'fac-1',
-      title: 'Sensory Gym Alpha',
+      title: 'Pediatric Sensory Gym',
       category: 'Sensory Gym',
       image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=800',
-      description: 'Suspension beams with platform swings, hammock cocoons, and impact crash mats.',
-      features: ['Adjustable swings', 'Padded crash zones', 'Warm circadian lighting', 'Acoustic damping']
+      description: 'Suspension beams with bolster and platform swings, deep pressure crash pads, and climbing textures.',
+      features: ['Proprioceptive swings', 'Padded crash safety mats', 'Calming sensory lighting', 'Vestibular balance zones']
     },
     {
       id: 'fac-2',
-      title: 'Speech & AAC Pod',
+      title: 'Speech & AAC Communication Pod',
       category: 'Speech Pod',
       image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=800',
-      description: 'Acoustically treated space for speech pathology, articulation, and AAC device practice.',
-      features: ['High-contrast walls', 'Oral motor station', 'Mirror feedback', 'Soundproof doors']
+      description: 'Acoustically quiet therapy room for speech articulation, bilingual Amharic-English vocabulary, and AAC device practice.',
+      features: ['Mirror articulation feedback', 'AAC picture communication cards', 'Oral motor stimulation tools', 'Quiet distraction-free zone']
     },
     {
       id: 'fac-3',
-      title: 'Motor & Gait Gym Beta',
-      category: 'Motor Room',
-      image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=800',
-      description: 'Physical therapy space with balance beams, parallel gait bars, and unweighting treadmill.',
-      features: ['Parallel walking bars', 'Balance discs', 'Harness support treadmill', 'Orthotic station']
+      title: 'Special Needs CPD Seminar & Training Hall',
+      category: 'Training & CPD',
+      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800',
+      description: 'Multi-purpose training room where Wanos Mesfin conducts teacher workshops, CPD certifications, and parent circles.',
+      features: ['Interactive presentation screens', 'Special education training library', 'Hands-on IEP workshop tables', 'Livestream panel equipment']
     },
     {
       id: 'fac-4',
-      title: 'Multi-Sensory Lounge',
+      title: 'Multi-Sensory Calm Down Room',
       category: 'Sensory Gym',
       image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=800',
-      description: 'Calming sensory haven with color-changing bubble tubes, fiber optics, and soothing sound.',
-      features: ['Bubble tubes', 'Tactile fiber optics', 'Aromatherapy', 'Vibroacoustic mattress']
+      description: 'A soothing sensory retreat with color-changing bubble lamps, fiber optic glow, and weighted soothing blankets.',
+      features: ['Color bubble columns', 'Tactile fiber optics', 'Deep pressure weighted vests', 'Gentle acoustic soothing']
     },
     {
       id: 'fac-5',
-      title: 'Family Observation Lounge',
-      category: 'Family Space',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
-      description: 'Comfortable parent lounge with one-way observation glass and live session monitors.',
-      features: ['One-way observation', 'Live session monitors', 'Parent tea bar', 'Sibling play corner']
+      title: 'Inclusive School Classroom Integration',
+      category: 'Home & School Space',
+      image: 'https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=800',
+      description: 'Classroom simulation where children practice circle time, task endurance, and shadow teacher accommodation.',
+      features: ['Visual schedule desk boards', 'Adaptive classroom seating', 'Desensitization practice', 'Shadow educator coaching station']
     },
     {
       id: 'fac-6',
-      title: 'Daily Living Skills Suite',
-      category: 'Motor Room',
+      title: 'In-Home Therapy & Mobile Caregiver Kit',
+      category: 'Home & School Space',
       image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=800',
-      description: 'Simulated home environment for independent living: dressing, buttoning, and food prep.',
-      features: ['Adaptive utensils', 'Zipper practice boards', 'Low-stimulation lighting', 'Adaptive seating']
+      description: 'Portable sensory, motor, and speech toolkits dispatched with therapists for home visits across Addis Ababa.',
+      features: ['Portable sensory mats', 'Tactile motor putty & adaptive tools', 'AAC communication binders', 'Parent coaching activity cards']
     }
   ];
 
-  const categories = ['All', 'Sensory Gym', 'Speech Pod', 'Motor Room', 'Family Space'];
+  const categories = ['All', 'Sensory Gym', 'Speech Pod', 'Training & CPD', 'Home & School Space'];
 
   const filteredItems = filter === 'All'
     ? facilityItems
@@ -74,15 +74,16 @@ export const Gallery: React.FC = () => {
 
   return (
     <div className="space-y-16 py-12">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
-        <span className="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-          Facility
-        </span>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-900 text-xs font-bold border border-brand-200">
+          <img src="/logo.png" alt="Mela Logo" className="w-5 h-5 object-contain" />
+          <span>ማዕከላችን • Clinical & Training Spaces</span>
+        </div>
         <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mt-3">
-          Sensory Rooms & Facility Tour
+          Sensory Center & Learning Environments
         </h1>
-        <p className="text-base text-slate-600 leading-relaxed mt-2">
-          Designed to minimize sensory overload while fostering movement, play, and communication.
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed mt-2">
+          Designed for comfort, communication, and focused development in Addis Ababa, Ethiopia.
         </p>
 
         {/* Filter Tabs */}

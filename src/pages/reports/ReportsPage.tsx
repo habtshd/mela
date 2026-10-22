@@ -221,8 +221,8 @@ export const ReportsPage: React.FC = () => {
                       fontSize: '12px'
                     }}
                   />
-                  <Bar dataKey="current" fill="#0d9488" radius={[6, 6, 0, 0]} name="Current Actual %" />
-                  <Bar dataKey="target" fill="#cbd5e1" radius={[6, 6, 0, 0]} name="Baseline Target %" />
+                  <Bar dataKey="current" fill="#3B833A" radius={[6, 6, 0, 0]} name="Current Actual %" />
+                  <Bar dataKey="target" fill="#F9E34D" radius={[6, 6, 0, 0]} name="Baseline Target %" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -269,8 +269,8 @@ export const ReportsPage: React.FC = () => {
                     fontSize: '12px'
                   }}
                 />
-                <Area type="monotone" dataKey="attended" stroke="#0d9488" fill="#ccfbf1" name="Sessions Completed" />
-                <Area type="monotone" dataKey="cancelled" stroke="#f43f5e" fill="#ffe4e6" name="Cancellations" />
+                <Area type="monotone" dataKey="attended" stroke="#3B833A" fill="#e2f2e0" name="Sessions Completed" />
+                <Area type="monotone" dataKey="cancelled" stroke="#dfc428" fill="#fdfbc4" name="Cancellations" />
               </AreaChart>
             </ResponsiveContainer>
           </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Heart,
   Sparkles,
   ArrowRight,
   ShieldCheck,
@@ -23,59 +22,63 @@ export const Home: React.FC = () => {
   return (
     <div className="space-y-20 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-teal-50/70 via-white to-slate-50 pt-12 pb-20 sm:pt-20 sm:pb-28 border-b border-teal-100/60">
+      <section className="relative overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-slate-50 pt-10 pb-16 sm:pt-16 sm:pb-24 border-b border-brand-100/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Headlines & CTA */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-100/80 text-teal-800 text-xs sm:text-sm font-bold shadow-sm border border-teal-200">
-                <Sparkles className="w-4 h-4 text-teal-600" />
-                <span>Pediatric Therapy Center</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 text-brand-900 text-xs sm:text-sm font-bold shadow-sm border border-brand-200">
+                <img src="/logo.png" alt="Mela Logo" className="w-5 h-5 object-contain" />
+                <span>መላ የልዩ-ፍላጎት አገልግሎት • Addis Ababa, Ethiopia</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
-                Empowering Every Child’s <br />
-                <span className="bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-600 bg-clip-text text-transparent">
-                  Unique Potential
+                Empowering Children with <br />
+                <span className="bg-gradient-to-r from-brand-600 via-emerald-600 to-gold-500 bg-clip-text text-transparent">
+                  Special Needs & Autism
                 </span>{' '}
-                with Heart & Science.
+                in Ethiopia.
               </h1>
 
-              <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Neurodiversity-affirming pediatric occupational, speech, and behavioral therapy in a play-based clinical environment.
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                Connecting Ethiopian families with professional Speech Therapy, Applied Behavior Analysis (ABA), Occupational Therapy, In-Home Caregivers, and Trained Shadow Teachers for inclusive education.
               </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
                 <Link
                   to="/services"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-600/20 hover:shadow-lg transition-all flex items-center justify-center gap-2 group"
                 >
-                  <span>Explore Services</span>
+                  <span>Explore Therapies & Services</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
-                <Link
-                  to="/login"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow transition-all flex items-center justify-center gap-2 group"
+                <a
+                  href="tel:+251717484604"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-gold-50/50 text-slate-900 border-2 border-gold-500 font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                 >
-                  <span>Sign In</span>
-                  <ArrowRight className="w-4 h-4 text-teal-400 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  <PhoneCall className="w-4 h-4 text-brand-600" />
+                  <span>Call: +251 717 484 604</span>
+                </a>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200/80 max-w-lg mx-auto lg:mx-0 text-left">
+              {/* Trust Indicators based on Facebook Community & Services */}
+              <div className="pt-6 grid grid-cols-4 gap-3 border-t border-slate-200/80 max-w-xl mx-auto lg:mx-0 text-left">
                 <div>
-                  <p className="text-2xl sm:text-3xl font-black text-slate-900">140+</p>
-                  <p className="text-xs text-slate-500 font-medium">Children Served</p>
+                  <p className="text-2xl sm:text-3xl font-black text-slate-900">1,300+</p>
+                  <p className="text-[11px] text-slate-500 font-medium leading-tight">Community Followers</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-black text-teal-600">100%</p>
-                  <p className="text-xs text-slate-500 font-medium">Licensed Staff</p>
+                  <p className="text-2xl sm:text-3xl font-black text-brand-600">350+</p>
+                  <p className="text-[11px] text-slate-500 font-medium leading-tight">Families Supported</p>
                 </div>
                 <div>
-                  <p className="text-2xl sm:text-3xl font-black text-slate-900">1:1</p>
-                  <p className="text-xs text-slate-500 font-medium">Individual Care</p>
+                  <p className="text-2xl sm:text-3xl font-black text-slate-900">120+</p>
+                  <p className="text-[11px] text-slate-500 font-medium leading-tight">Shadow Teachers</p>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-black text-gold-600">1:1</p>
+                  <p className="text-[11px] text-slate-500 font-medium leading-tight">Home & Clinic Care</p>
                 </div>
               </div>
             </div>
@@ -84,41 +87,47 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Glow Backdrop */}
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-teal-400/20 to-emerald-400/20 blur-2xl -z-10" />
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-brand-400/20 via-gold-400/20 to-emerald-400/20 blur-2xl -z-10" />
 
                 {/* Main Image Card */}
-                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white relative">
+                  {/* Floating Brand Stamp */}
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-md border border-slate-100 flex items-center gap-2 z-10">
+                    <img src="/logo.png" alt="Mela Logo" className="w-6 h-6 object-contain" />
+                    <span className="text-xs font-black text-slate-900">Mela Special Needs</span>
+                  </div>
+
                   <img
                     src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=800"
-                    alt="Pediatric therapy session"
+                    alt="Pediatric therapy session in Addis Ababa"
                     className="w-full h-80 object-cover"
                   />
                   <div className="p-5 bg-white space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200">
-                        Sensory Lab
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-brand-50 text-brand-700 border border-brand-200">
+                        Addis Ababa Center & In-Home
                       </span>
                       <span className="text-xs font-semibold text-amber-600">
-                        ★★★★★ Family Rated
+                        ★★★★★ Parent Trusted
                       </span>
                     </div>
                     <p className="text-sm font-bold text-slate-900">
-                      "Liam gained joyful independence and confidence in just six months."
+                      "መላ የልዩ-ፍላጎት አገልግሎት helped our son develop functional speech and comfortably attend school with an attentive shadow teacher."
                     </p>
                     <p className="text-xs text-slate-400">
-                      — Sarah J., Parent Guardian
+                      — Parent Member, Mela Family Community
                     </p>
                   </div>
                 </div>
 
                 {/* Floating Achievement Badge */}
                 <div className="absolute -bottom-6 -left-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-float hidden sm:flex">
-                  <div className="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600">
+                  <div className="w-10 h-10 rounded-xl bg-gold-100 flex items-center justify-center text-gold-700">
                     <Award className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-900">Clinical Outcomes</p>
-                    <p className="text-[11px] text-teal-600 font-semibold">SOAP Progress Tracking</p>
+                    <p className="text-xs font-bold text-slate-900">Inclusive Education CPD</p>
+                    <p className="text-[11px] text-brand-600 font-semibold">Accredited Special Needs Training</p>
                   </div>
                 </div>
               </div>
@@ -131,66 +140,66 @@ export const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-            Care Philosophy
+            Care Philosophy • የሥራችን መርሆዎች
           </span>
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-            Comprehensive Pediatric Support
+            Integrated Special Needs Services in Ethiopia
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed">
-            Individualized therapy pathways tailored to each child's developmental profile.
+            From early evaluation to school-based shadow teaching, we support neurodivergent children at every step of their growth.
           </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-700">
-              <Activity className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-slate-900">Sensory Integration</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Vestibular, tactile, and proprioceptive regulation using swings and crash zones.
-            </p>
-            <Link to="/services" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Learn more <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-sky-100 flex items-center justify-center text-sky-700">
-              <MessageSquare className="w-5 h-5" />
-            </div>
-            <h3 className="text-base font-bold text-slate-900">Speech & AAC</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Functional communication, articulation, and AAC device support.
-            </p>
-            <Link to="/services" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Learn more <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-amber-100 flex items-center justify-center text-amber-700">
+            <div className="w-11 h-11 rounded-2xl bg-gold-100 text-gold-900 border border-gold-300 flex items-center justify-center">
               <Smile className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900">Behavioral Care</h3>
+            <h3 className="text-base font-bold text-slate-900">Autism & ABA Support</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Positive reinforcement focusing on regulation and self-advocacy.
+              Positive behavioral modification, emotional regulation, and structured routines designed for autistic children.
             </p>
-            <Link to="/services" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
+            <Link to="/services" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
               Learn more <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-700">
+            <div className="w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 border border-brand-200 flex items-center justify-center">
+              <MessageSquare className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-slate-900">Speech & Language</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Language delays, articulation therapy, and AAC picture communication in both Amharic and English.
+            </p>
+            <Link to="/services" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
+              Learn more <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
+            <div className="w-11 h-11 rounded-2xl bg-gold-100 text-gold-900 border border-gold-300 flex items-center justify-center">
+              <Activity className="w-5 h-5" />
+            </div>
+            <h3 className="text-base font-bold text-slate-900">Sensory & Occupational</h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Sensory gym swing therapy, vestibular balance, fine motor grasp, and self-care independence.
+            </p>
+            <Link to="/services" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
+              Learn more <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
+            <div className="w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 border border-brand-200 flex items-center justify-center">
               <Users className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-slate-900">Parent Partnership</h3>
+            <h3 className="text-base font-bold text-slate-900">Shadow Teaching</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Caregiver coaching, home exercises, and progress tracking in the portal.
+              Trained special needs facilitators deployed directly to Addis Ababa private and international schools.
             </p>
-            <Link to="/parent" className="text-xs font-bold text-teal-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Parent Portal <ChevronRight className="w-3.5 h-3.5" />
+            <Link to="/programs" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
+              Shadow program <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
@@ -319,30 +328,38 @@ export const Home: React.FC = () => {
       {/* Call To Action Box */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-          <div className="relative z-10 max-w-xl space-y-4">
+          <div className="relative z-10 max-w-2xl space-y-4">
             <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-400/30">
-              Get Started
+              ልዩ-ፍላጎት አገልግሎት • Addis Ababa
             </span>
             <h2 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
-              Partner with Mela Today
+              Get Professional Support for Your Child Today
             </h2>
             <p className="text-slate-300 text-sm leading-relaxed">
-              Contact our clinical intake team or sign in to access the platform.
+              Whether you need in-center therapy, in-home caregiver guidance, or an experienced shadow teacher for school, Mela Special Needs Service is here to walk with you.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
+              <a
+                href="tel:+251717484604"
+                className="px-5 py-3 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-xs shadow transition-all flex items-center gap-2"
+              >
+                <PhoneCall className="w-4 h-4 text-slate-900" />
+                <span>Call +251 717 484 604</span>
+              </a>
               <Link
                 to="/contact"
-                className="px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs shadow transition-all flex items-center gap-2"
+                className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs transition-all flex items-center gap-2"
               >
-                <PhoneCall className="w-4 h-4 text-teal-600" />
-                <span>Contact Intake</span>
+                <span>Send Intake Inquiry</span>
               </Link>
-              <Link
-                to="/login"
-                className="px-5 py-3 rounded-xl bg-teal-500/20 hover:bg-teal-500/30 text-teal-200 border border-teal-400/40 font-bold text-xs transition-all"
+              <a
+                href="https://t.me/MelaSpecialNeedsService"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-3 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 border border-sky-400/30 font-bold text-xs transition-all flex items-center gap-2"
               >
-                Sign In to Platform →
-              </Link>
+                <span>Telegram @MelaSpecialNeedsService ↗</span>
+              </a>
             </div>
           </div>
         </div>

@@ -98,25 +98,25 @@ export const ParentPortal: React.FC = () => {
   return (
     <div className="space-y-8 pb-12 max-w-6xl mx-auto">
       {/* Welcome Hero Banner */}
-      <div className="bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-brand-900 via-brand-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <img
               src={liam.avatar}
               alt={liam.firstName}
-              className="w-16 h-16 rounded-2xl object-cover ring-4 ring-teal-400/30"
+              className="w-16 h-16 rounded-2xl object-cover ring-4 ring-gold-400/50"
             />
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-2xl font-black tracking-tight">{liam.firstName}'s Family Portal</h1>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-400/20 text-teal-300 border border-teal-400/30">
+                <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gold-400/20 text-gold-300 border border-gold-400/30">
                   Parent Access
                 </span>
               </div>
               <p className="text-xs text-slate-300 mt-1">
                 Primary Diagnosis: <strong>{liam.primaryDiagnosis}</strong> • Age: {liam.age} yrs
               </p>
-              <p className="text-[11px] text-teal-200 mt-0.5">
+              <p className="text-[11px] text-brand-200 mt-0.5">
                 Lead Specialist: <strong>{assignedTherapist.name} ({assignedTherapist.credentials})</strong>
               </p>
             </div>

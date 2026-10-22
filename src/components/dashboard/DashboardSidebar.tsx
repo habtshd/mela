@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDemo } from '../../context/DemoContext';
 import {
-  Heart,
   LayoutDashboard,
   Users,
   Stethoscope,
@@ -47,9 +46,9 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
   };
 
   const roleBadges = {
-    admin: { label: 'Administrator', bg: 'bg-emerald-100 text-emerald-800 border-emerald-200' },
-    therapist: { label: 'Specialist / OT', bg: 'bg-teal-100 text-teal-800 border-teal-200' },
-    parent: { label: 'Parent Portal', bg: 'bg-indigo-100 text-indigo-800 border-indigo-200' }
+    admin: { label: 'Administrator', bg: 'bg-brand-100 text-brand-900 border-brand-300' },
+    therapist: { label: 'Specialist / OT', bg: 'bg-brand-50 text-brand-800 border-brand-200' },
+    parent: { label: 'Parent Portal', bg: 'bg-gold-100 text-gold-900 border-gold-300' }
   };
 
   return (
@@ -71,14 +70,19 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
         {/* Brand Header */}
         <div className="h-20 px-6 flex items-center justify-between border-b border-slate-800/80 bg-slate-950/50">
           <NavLink to="/dashboard" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-teal-400 flex items-center justify-center text-white shadow-md shadow-teal-500/20">
-              <Heart className="w-5 h-5 fill-white/20" />
+            <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 p-1 flex items-center justify-center shadow-md">
+              <img
+                src="/logo.png"
+                alt="Mela Special Needs Service Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
-              <span className="text-lg font-black tracking-tight text-white flex items-center gap-1">
-                Mela <span className="text-teal-400 text-sm font-bold">Admin</span>
+              <span className="text-lg font-black tracking-tight text-white flex items-center gap-1.5">
+                Mela <span className="text-brand-400 text-sm font-bold">Admin</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-gold-400 inline-block"></span>
               </span>
-              <p className="text-[10px] text-teal-300/70 font-medium">Care Management OS</p>
+              <p className="text-[10px] text-teal-300/80 font-medium">Care Management OS</p>
             </div>
           </NavLink>
           <button

@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   Calendar,
   User,
-  Heart,
   TrendingUp,
   Download,
   Share2,
@@ -425,8 +424,12 @@ export const SessionsPage: React.FC = () => {
               {/* Header Letterhead */}
               <div className="flex justify-between items-start border-b-2 border-teal-600 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-black">
-                    <Heart className="w-6 h-6 fill-white/20" />
+                  <div className="w-12 h-12 rounded-xl bg-white border border-teal-200 p-1 flex items-center justify-center shadow-sm">
+                    <img
+                      src="/logo.png"
+                      alt="Mela Special Needs Service Logo"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <h2 className="text-xl font-black tracking-tight">{settings.name}</h2>

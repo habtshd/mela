@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-green: #3B833A;
+  --brand-green-dark: #245623;
+  --brand-green-light: #f2f9f1;
+  --brand-yellow: #F9E34D;
+  --brand-yellow-dark: #dfc428;
+  --brand-yellow-light: #fefde8;
+}
+
 @layer base {
   * {
     border-color: #e2e8f0;
+  }
+  ::selection {
+    background-color: #3B833A;
+    color: #ffffff;
   }
   body {
     background-color: #f8fafc;
