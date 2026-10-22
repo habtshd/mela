@@ -86,7 +86,7 @@ export const BillingPage: React.FC = () => {
     const styles = {
       paid: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       pending: 'bg-amber-50 text-amber-800 border-amber-200',
-      overdue: 'bg-rose-50 text-rose-800 border-rose-200'
+      overdue: 'bg-amber-50 text-amber-800 border-amber-200'
     };
     return (
       <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${styles[status]}`}>
@@ -157,12 +157,12 @@ export const BillingPage: React.FC = () => {
         <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-soft">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold text-slate-500">Overdue Invoices</span>
-            <div className="p-2 rounded-xl bg-rose-50 text-rose-700">
+            <div className="p-2 rounded-xl bg-amber-50 text-amber-700">
               <AlertTriangle className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-2xl font-black text-rose-700">{overdueCount} Invoices</p>
-          <span className="text-[11px] font-medium text-rose-600 block mt-1">
+          <p className="text-2xl font-black text-amber-700">{overdueCount} Invoices</p>
+          <span className="text-[11px] font-medium text-amber-600 block mt-1">
             Automated reminder sent
           </span>
         </div>

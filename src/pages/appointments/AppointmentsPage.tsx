@@ -141,9 +141,9 @@ export const AppointmentsPage: React.FC = () => {
     const badges = {
       completed: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       confirmed: 'bg-teal-50 text-teal-800 border-teal-200',
-      scheduled: 'bg-sky-50 text-sky-800 border-sky-200',
+      scheduled: 'bg-green-50 text-green-800 border-green-200',
       cancelled: 'bg-slate-100 text-slate-500 border-slate-200 line-through',
-      no_show: 'bg-rose-50 text-rose-800 border-rose-200'
+      no_show: 'bg-amber-50 text-amber-800 border-amber-200'
     };
     return (
       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${badges[status]}`}>
@@ -507,7 +507,7 @@ export const AppointmentsPage: React.FC = () => {
             </div>
 
             {selectedAppointment.cancellationReason && (
-              <div className="p-3 bg-rose-50 border border-rose-200 text-rose-900 rounded-xl text-xs">
+              <div className="p-3 border rounded-xl text-xs" style={{background:'#fffbeb',borderColor:'#fde68a',color:'#78350f'}}>
                 <strong>Cancellation Reason:</strong> {selectedAppointment.cancellationReason}
               </div>
             )}
@@ -519,8 +519,7 @@ export const AppointmentsPage: React.FC = () => {
                     onClick={() => {
                       setCancelModalOpen(true);
                     }}
-                    className="px-3.5 py-2 text-xs font-bold text-rose-600 hover:bg-rose-50 rounded-xl"
-                  >
+                    className="px-3.5 py-2 text-xs font-bold rounded-xl" style={{color:'#b45309'}}>
                     Cancel Session
                   </button>
                 )}

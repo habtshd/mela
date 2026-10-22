@@ -150,57 +150,137 @@ export const Home: React.FC = () => {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-gold-100 text-gold-900 border border-gold-300 flex items-center justify-center">
-              <Smile className="w-5 h-5" />
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <Link to="/services" className="group rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
+            <div className="h-52 w-full overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=700"
+                alt="Autism & ABA Behavior Support"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur text-gold-900 border border-gold-300 flex items-center justify-center shadow-sm">
+                <Smile className="w-4 h-4 text-brand-600" />
+              </div>
             </div>
-            <h3 className="text-base font-bold text-slate-900">Autism & ABA Support</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Positive behavioral modification, emotional regulation, and structured routines designed for autistic children.
-            </p>
-            <Link to="/services" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Learn more <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Autism & ABA Therapy</h3>
+              <ChevronRight className="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link to="/services" className="group rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
+            <div className="h-52 w-full overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=700"
+                alt="Speech & Language Therapy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur text-brand-700 border border-brand-200 flex items-center justify-center shadow-sm">
+                <MessageSquare className="w-4 h-4 text-brand-600" />
+              </div>
+            </div>
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Speech & Communication</h3>
+              <ChevronRight className="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link to="/services" className="group rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
+            <div className="h-52 w-full overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=700"
+                alt="Sensory & Occupational Therapy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur text-gold-900 border border-gold-300 flex items-center justify-center shadow-sm">
+                <Activity className="w-4 h-4 text-brand-600" />
+              </div>
+            </div>
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Occupational & Sensory</h3>
+              <ChevronRight className="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+
+          <Link to="/programs" className="group rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
+            <div className="h-52 w-full overflow-hidden relative">
+              <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=700"
+                alt="Shadow Teaching & School Integration"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-3 left-3 w-9 h-9 rounded-xl bg-white/90 backdrop-blur text-brand-700 border border-brand-200 flex items-center justify-center shadow-sm">
+                <Users className="w-4 h-4 text-brand-600" />
+              </div>
+            </div>
+            <div className="p-4 flex items-center justify-between">
+              <h3 className="text-sm font-bold text-slate-900 group-hover:text-brand-600 transition-colors">School Shadow Teaching</h3>
+              <ChevronRight className="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Visual Center Highlights & Gallery Preview */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-700">Therapy Spaces</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-0.5">
+              Center & Clinical Facilities
+            </h2>
+          </div>
+          <Link
+            to="/gallery"
+            className="text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center gap-1"
+          >
+            Full Gallery <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 relative group h-48 sm:h-56">
+            <img
+              src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=600"
+              alt="Sensory Calm Down Room"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-3">
+              <span className="text-xs font-bold text-white">Sensory Calm Room</span>
+            </div>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 border border-brand-200 flex items-center justify-center">
-              <MessageSquare className="w-5 h-5" />
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 relative group h-48 sm:h-56">
+            <img
+              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=600"
+              alt="CPD Training Seminar Hall"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-3">
+              <span className="text-xs font-bold text-white">CPD Workshop Hall</span>
             </div>
-            <h3 className="text-base font-bold text-slate-900">Speech & Language</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Language delays, articulation therapy, and AAC picture communication in both Amharic and English.
-            </p>
-            <Link to="/services" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Learn more <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-gold-100 text-gold-900 border border-gold-300 flex items-center justify-center">
-              <Activity className="w-5 h-5" />
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 relative group h-48 sm:h-56">
+            <img
+              src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=600"
+              alt="Classroom Inclusion Practice"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-3">
+              <span className="text-xs font-bold text-white">Classroom Simulation</span>
             </div>
-            <h3 className="text-base font-bold text-slate-900">Sensory & Occupational</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Sensory gym swing therapy, vestibular balance, fine motor grasp, and self-care independence.
-            </p>
-            <Link to="/services" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Learn more <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all space-y-3">
-            <div className="w-11 h-11 rounded-2xl bg-brand-50 text-brand-700 border border-brand-200 flex items-center justify-center">
-              <Users className="w-5 h-5" />
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 relative group h-48 sm:h-56">
+            <img
+              src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=600"
+              alt="Fine Motor Therapy Tools"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex items-end p-3">
+              <span className="text-xs font-bold text-white">Fine Motor Play Zone</span>
             </div>
-            <h3 className="text-base font-bold text-slate-900">Shadow Teaching</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Trained special needs facilitators deployed directly to Addis Ababa private and international schools.
-            </p>
-            <Link to="/programs" className="text-xs font-bold text-brand-600 flex items-center gap-1 hover:gap-2 transition-all">
-              Shadow program <ChevronRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </div>
       </section>
@@ -208,7 +288,7 @@ export const Home: React.FC = () => {
       {/* Featured Programs Grid */}
       <section className="bg-slate-100/70 py-16 border-y border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-teal-700">Clinical Offerings</span>
               <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-1">
@@ -224,82 +304,86 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {programs.slice(0, 3).map((prog) => (
-              <div
-                key={prog.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-teal-50 text-teal-700">
-                      {prog.category}
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500">
-                      {prog.ageRange}
-                    </span>
+            {programs.slice(0, 3).map((prog, idx) => {
+              const programImages = [
+                'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=700',
+                'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=700',
+                'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=700'
+              ];
+              return (
+                <div
+                  key={prog.id}
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all flex flex-col justify-between"
+                >
+                  <div className="h-48 w-full overflow-hidden relative">
+                    <img
+                      src={programImages[idx % programImages.length]}
+                      alt={prog.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 backdrop-blur text-brand-700 shadow-sm border border-slate-100">
+                        {prog.category}
+                      </span>
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-900/80 text-white backdrop-blur shadow-sm">
+                        {prog.ageRange}
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{prog.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                    {prog.description}
-                  </p>
-                  <ul className="space-y-1.5 mb-6">
-                    {prog.objectives.slice(0, 3).map((obj, i) => (
-                      <li key={i} className="text-xs text-slate-600 flex items-start gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-teal-600 flex-shrink-0 mt-0.5" />
-                        <span>{obj}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-1">{prog.title}</h3>
+                      <p className="text-xs text-slate-500 line-clamp-2 mb-3">
+                        {prog.description}
+                      </p>
+                    </div>
 
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500">Lead: {prog.leadTherapistName.split(',')[0]}</span>
-                  <Link
-                    to="/services"
-                    className="font-bold text-teal-600 hover:text-teal-700 flex items-center gap-1"
-                  >
-                    Details <ChevronRight className="w-3.5 h-3.5" />
-                  </Link>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">Lead: {prog.leadTherapistName.split(',')[0]}</span>
+                      <Link
+                        to="/services"
+                        className="font-bold text-brand-600 hover:text-brand-700 flex items-center gap-1"
+                      >
+                        Details <ChevronRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Multidisciplinary Team Teaser */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-xl mx-auto mb-10">
+        <div className="text-center max-w-xl mx-auto mb-8">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
             Specialists
           </span>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-2">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
             Clinical Team
           </h2>
-          <p className="text-xs text-slate-500 mt-1">
-            Licensed pediatric specialists dedicated to child-centered care.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {therapists.slice(0, 3).map((t) => (
             <div
               key={t.id}
-              className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all text-center space-y-3"
+              className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all text-center space-y-2.5"
             >
               <img
                 src={t.avatar}
                 alt={t.name}
-                className="w-20 h-20 rounded-full mx-auto object-cover ring-4 ring-teal-100"
+                className="w-24 h-24 rounded-full mx-auto object-cover ring-4 ring-brand-100 shadow-sm"
               />
               <div>
                 <h3 className="text-base font-bold text-slate-900">{t.name}</h3>
-                <p className="text-xs font-bold text-teal-600">{t.credentials}</p>
+                <p className="text-xs font-bold text-brand-600">{t.credentials}</p>
                 <p className="text-xs text-slate-500">{t.title}</p>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                {t.bio}
-              </p>
               <div className="pt-1 flex flex-wrap justify-center gap-1.5">
                 {t.specializations.slice(0, 2).map((s, idx) => (
                   <span
@@ -314,7 +398,7 @@ export const Home: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-6">
           <Link
             to="/team"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all"
@@ -356,7 +440,7 @@ export const Home: React.FC = () => {
                 href="https://t.me/MelaSpecialNeedsService"
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-3 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 border border-sky-400/30 font-bold text-xs transition-all flex items-center gap-2"
+                className="px-5 py-3 rounded-xl font-bold text-xs transition-all flex items-center gap-2 border" style={{background:'rgba(249,227,77,0.15)',color:'#F9E34D',borderColor:'rgba(249,227,77,0.35)'}}
               >
                 <span>Telegram @MelaSpecialNeedsService ↗</span>
               </a>

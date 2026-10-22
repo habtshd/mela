@@ -164,90 +164,124 @@ export const SessionsPage: React.FC = () => {
         {filteredSessions.map((sess) => (
           <div
             key={sess.id}
-            className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-soft hover:shadow-soft-lg transition-all space-y-4"
+            className="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm hover:shadow-md transition-all space-y-4"
           >
-            {/* Top Bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-black text-sm">
-                  {sess.progressScore}%
+            {/* Header: Child info, Progress Bar & Quick Actions */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3.5">
+                {/* Visual Progress Ring / Badge */}
+                <div className="flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex-shrink-0">
+                  <span className="text-base font-black leading-none">{sess.progressScore}%</span>
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-600 mt-0.5">Score</span>
                 </div>
+
                 <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-base font-bold text-slate-900">{sess.childName}</h3>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
-                      {sess.durationMinutes} min session
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-base font-black text-slate-900">{sess.childName}</h3>
+                    <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                      {sess.durationMinutes} min
                     </span>
                     {sess.parentVisible && (
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
-                        Visible to Parent
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100/70 text-emerald-800">
+                        ● Shared with Parent
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-slate-500">
-                    {sess.programTitle} • Clinician: <strong>{sess.therapistName}</strong> • Date: <strong>{sess.date}</strong>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    <span className="font-semibold text-slate-700">{sess.programTitle}</span> • {sess.therapistName} • {sess.date}
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => handleOpenPrintableReport(sess)}
-                  className="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center gap-1.5"
-                >
-                  <Printer className="w-3.5 h-3.5" />
-                  <span>Print Progress Report</span>
-                </button>
+              {/* Action */}
+              <button
+                onClick={() => handleOpenPrintableReport(sess)}
+                className="self-start sm:self-center px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center gap-1.5"
+              >
+                <Printer className="w-3.5 h-3.5" />
+                <span>Print Report</span>
+              </button>
+            </div>
+
+            {/* Visual Progress Line */}
+            <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+              <div
+                className="bg-emerald-500 h-full rounded-full transition-all duration-500"
+                style={{ width: `${sess.progressScore}%` }}
+              />
+            </div>
+
+            {/* Visual Highlights & Metrics Dashboard */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100/80">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 block mb-1">
+                  S • State / Mood
+                </span>
+                <div className="flex items-center gap-1.5 font-bold text-xs text-slate-800">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span className="truncate">Regulated & Calm</span>
+                </div>
+                <span className="text-[10px] text-slate-400 mt-0.5 block truncate">
+                  Sleep & transit well-tolerated
+                </span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100/80">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 block mb-1">
+                  O • Activity Accuracy
+                </span>
+                <div className="flex items-center gap-1.5 font-bold text-xs text-emerald-700">
+                  <span className="px-1.5 py-0.5 rounded bg-emerald-100 text-[10px]">85%</span>
+                  <span className="truncate">Target Trials Met</span>
+                </div>
+                <span className="text-[10px] text-slate-400 mt-0.5 block truncate">
+                  Motor & sensory warm-up
+                </span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100/80">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 block mb-1">
+                  A • Clinical Trend
+                </span>
+                <div className="flex items-center gap-1.5 font-bold text-xs text-amber-800">
+                  <span className="text-emerald-600">▲</span>
+                  <span className="truncate">Notable Coordination</span>
+                </div>
+                <span className="text-[10px] text-slate-400 mt-0.5 block truncate">
+                  Spontaneous requests logged
+                </span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-100/80">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700 block mb-1">
+                  P • Next Step Focus
+                </span>
+                <div className="flex items-center gap-1.5 font-bold text-xs text-slate-800">
+                  <span>🎯</span>
+                  <span className="truncate">Graded Complexity</span>
+                </div>
+                <span className="text-[10px] text-slate-400 mt-0.5 block truncate">
+                  Zipper board & putty exercises
+                </span>
               </div>
             </div>
 
-            {/* SOAP Breakdown Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-teal-700 mb-1">
-                  S — Subjective
-                </p>
-                <p className="text-slate-700 leading-relaxed">{sess.soapSubjective}</p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-sky-700 mb-1">
-                  O — Objective
-                </p>
-                <p className="text-slate-700 leading-relaxed">{sess.soapObjective}</p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-amber-700 mb-1">
-                  A — Assessment
-                </p>
-                <p className="text-slate-700 leading-relaxed">{sess.soapAssessment}</p>
-              </div>
-
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-purple-700 mb-1">
-                  P — Plan & Home Tips
-                </p>
-                <p className="text-slate-700 leading-relaxed">{sess.soapPlan}</p>
-              </div>
-            </div>
-
-            {/* Milestones Worked on */}
-            <div className="pt-2 flex flex-wrap items-center justify-between text-xs gap-2">
+            {/* Bottom tags & home practice */}
+            <div className="pt-1 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 text-xs">
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-[11px] font-bold text-slate-500 mr-1">Milestones Target:</span>
+                <span className="text-[11px] font-semibold text-slate-400">Milestones:</span>
                 {sess.milestonesWorkedOn.map((m, idx) => (
                   <span
                     key={idx}
-                    className="text-[10px] font-semibold bg-teal-50 text-teal-800 px-2.5 py-0.5 rounded-full border border-teal-100"
+                    className="text-[10px] font-semibold bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full"
                   >
-                    {m}
+                    ✓ {m}
                   </span>
                 ))}
               </div>
 
               {sess.homeExercises && (
-                <div className="text-[11px] text-amber-900 bg-amber-50 px-3 py-1 rounded-xl border border-amber-200">
+                <div className="text-[11px] text-amber-900 bg-amber-50 px-3 py-1 rounded-lg border border-amber-200/80">
                   <strong>Home Practice:</strong> {sess.homeExercises}
                 </div>
               )}

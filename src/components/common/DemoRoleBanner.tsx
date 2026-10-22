@@ -236,7 +236,7 @@ export const DemoRoleBanner: React.FC = () => {
               <div className="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-slate-900 text-sm">Step 3: Specialist & Therapist Experience</span>
-                  <span className="text-[10px] font-bold bg-sky-100 text-sky-800 px-2 py-0.5 rounded">Clinician Productivity</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{background:'#fef9c3',color:'#854d0e'}}>Clinician Productivity</span>
                 </div>
                 <p className="text-slate-600">
                   Switch to <strong>Therapist (Michael Chen)</strong>. Demonstrate logging a SOAP note (Subjective, Objective, Assessment, Plan) with milestone progress scores and generating a one-click <strong>Printable Progress Report</strong>.

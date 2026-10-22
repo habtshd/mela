@@ -161,7 +161,7 @@ export const AdminDashboard: React.FC = () => {
         <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all">
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-bold text-slate-500">Therapy Programs</span>
-            <div className="p-2.5 rounded-2xl bg-sky-50 text-sky-700">
+            <div className="p-2.5 rounded-2xl" style={{background:'#f0f9f0',color:'#3B833A'}}>
               <Layers className="w-5 h-5" />
             </div>
           </div>
@@ -203,7 +203,7 @@ export const AdminDashboard: React.FC = () => {
         <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-soft hover:shadow-soft-lg transition-all">
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-bold text-slate-500">Outstanding Invoices</span>
-            <div className="p-2.5 rounded-2xl bg-rose-50 text-rose-700">
+            <div className="p-2.5 rounded-2xl" style={{background:'#fef9e8',color:'#b8860b'}}>
               <CreditCard className="w-5 h-5" />
             </div>
           </div>
@@ -373,7 +373,7 @@ export const AdminDashboard: React.FC = () => {
                         </button>
                         <button
                           onClick={() => handleQuickStatus(apt.id, 'cancelled')}
-                          className="px-2 py-1 text-[11px] font-medium text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                          className="px-2 py-1 text-[11px] font-medium text-slate-500 hover:text-amber-700 hover:bg-amber-50 rounded-lg transition-colors"
                           title="Cancel session"
                         >
                           Cancel

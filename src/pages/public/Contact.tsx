@@ -149,10 +149,10 @@ export const Contact: React.FC = () => {
                     href="https://t.me/MelaSpecialNeedsService"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between p-2 rounded-xl bg-sky-50 text-sky-900 hover:bg-sky-100 transition-colors font-semibold"
+                    className="flex items-center justify-between p-2 rounded-xl transition-colors font-semibold" style={{background:'#f0f9f0',color:'#3B833A'}}
                   >
                     <span>Telegram Channel (@MelaSpecialNeedsService)</span>
-                    <span className="text-[11px] text-sky-700">Join ↗</span>
+                    <span className="text-[11px]" style={{color:'#3B833A'}}>Join ↗</span>
                   </a>
                   <a
                     href="https://t.me/MelaSpecialNeedsServiceGroup"
