@@ -15,7 +15,8 @@ import {
   X,
   ExternalLink,
   Shield,
-  UserCheck
+  UserCheck,
+  Link2
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -31,11 +32,13 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
     { label: 'Overview', href: '/dashboard', icon: LayoutDashboard },
     { label: 'Children & Intake', href: '/children', icon: Users, badge: '8' },
     { label: 'Therapists & Staff', href: '/therapists', icon: Stethoscope },
+    { label: 'Therapist Workspace', href: '/therapist-portal', icon: Stethoscope, special: true },
     { label: 'Appointments & Cal', href: '/appointments', icon: CalendarDays },
     { label: 'Sessions & SOAP Notes', href: '/sessions', icon: FileSpreadsheet },
     { label: 'Therapy Programs', href: '/admin-programs', icon: Layers },
     { label: 'Billing & Invoices', href: '/billing', icon: CreditCard, alert: true },
     { label: 'Analytics & Reports', href: '/reports', icon: BarChart3 },
+    { label: 'Portal Integrations', href: '/integrations', icon: Link2 },
     { label: 'Parent Portal View', href: '/parent', icon: UserCheck, special: true },
     { label: 'Platform Settings', href: '/settings', icon: Settings },
   ];

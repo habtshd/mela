@@ -27,9 +27,11 @@ import { ProgramsAdminPage } from './pages/programs/ProgramsAdminPage';
 import { BillingPage } from './pages/billing/BillingPage';
 import { ReportsPage } from './pages/reports/ReportsPage';
 import { SettingsPage } from './pages/settings/SettingsPage';
+import { IntegrationHub } from './pages/integrations/IntegrationHub';
 
-// Parent Portal
+// Parent & Therapist Portals
 import { ParentPortal } from './pages/parent/ParentPortal';
+import { TherapistPortal } from './pages/therapist/TherapistPortal';
 
 export function App() {
   return (
@@ -51,16 +53,18 @@ export function App() {
           {/* Sign In Route */}
           <Route path="/login" element={<Login />} />
 
-          {/* Private Management Platform & Parent Portal */}
+          {/* Private Management Platform & Portals */}
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<AdminDashboard />} />
             <Route path="/children" element={<ChildrenManagement />} />
             <Route path="/therapists" element={<TherapistManagement />} />
+            <Route path="/therapist-portal" element={<TherapistPortal />} />
             <Route path="/appointments" element={<AppointmentsPage />} />
             <Route path="/sessions" element={<SessionsPage />} />
             <Route path="/admin-programs" element={<ProgramsAdminPage />} />
             <Route path="/billing" element={<BillingPage />} />
             <Route path="/reports" element={<ReportsPage />} />
+            <Route path="/integrations" element={<IntegrationHub />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/parent" element={<ParentPortal />} />
           </Route>
