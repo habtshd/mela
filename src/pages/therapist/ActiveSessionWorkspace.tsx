@@ -123,7 +123,7 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
   const therapist = therapists[0];
 
   // Live session elapsed clock
-  const [sessionSeconds, setSessionSeconds] = useState(1450); // Start mid-session for demo
+  const [sessionSeconds, setSessionSeconds] = useState(1514); // Mid-session timer
   const [sessionActive, setSessionActive] = useState(true);
 
   useEffect(() => {
@@ -180,7 +180,6 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
 
   // Target record handler
   const handleRecord = (target: ObservationTarget, data: Partial<LiveEvent>) => {
-    // Haptic feedback if supported
     if (typeof window !== 'undefined' && 'navigator' in window && navigator.vibrate) {
       navigator.vibrate(35);
     }
@@ -301,16 +300,16 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
   };
 
   return (
-    <div className="min-h-screen bg-[#0C1B19] text-slate-100 flex flex-col font-sans selection:bg-[#3B833A] selection:text-white">
-      {/* 1. TOP LIVE WORKSPACE CONTROLLER */}
-      <header className="sticky top-0 z-30 bg-[#112522]/95 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center justify-between shadow-lg">
-        <div className="flex items-center gap-3">
+    <div className="space-y-6 pb-12 font-sans selection:bg-[#3B833A] selection:text-white">
+      {/* 1. TOP HEADER & WORKSPACE CONTROLLER (Clean Light Theme Matching Other Pages) */}
+      <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/90 shadow-soft flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
           <button
             onClick={() => {
               if (onBackToDashboard) onBackToDashboard();
               else navigate('/therapist-portal');
             }}
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors"
+            className="p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors flex-shrink-0"
             title="Return to Therapist Dashboard"
           >
             <ArrowLeft className="w-5 h-5" />
@@ -318,19 +317,19 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
 
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
-              <span className="text-xs uppercase font-black tracking-widest text-[#F9E34D] bg-[#F9E34D]/10 px-2 py-0.5 rounded-md border border-[#F9E34D]/20">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
                 Live Clinical Workspace
               </span>
             </div>
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex items-center gap-2 mt-1">
               <select
                 value={selectedChildId}
                 onChange={(e) => setSelectedChildId(e.target.value)}
-                className="bg-transparent text-lg font-black text-white hover:text-[#F9E34D] cursor-pointer focus:outline-none border-b border-dashed border-white/20 pb-0.5"
+                className="bg-slate-50 border border-slate-200 text-slate-900 font-black text-base sm:text-lg px-3 py-1.5 rounded-xl cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3B833A]"
               >
                 {childrenList.map((c) => (
-                  <option key={c.id} value={c.id} className="bg-[#112522] text-white">
+                  <option key={c.id} value={c.id}>
                     {c.firstName} {c.lastName} ({c.age} yrs) - {c.primaryDiagnosis}
                   </option>
                 ))}
@@ -339,21 +338,21 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
           </div>
         </div>
 
-        {/* Center: Live Session Stopwatch */}
-        <div className="flex items-center gap-3 bg-[#0a1815] border border-white/10 px-4 py-1.5 rounded-2xl shadow-inner">
-          <Clock className="w-4 h-4 text-[#F9E34D] animate-spin" style={{ animationDuration: '6s' }} />
+        {/* Center: Live Session Stopwatch Widget */}
+        <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 px-4 py-2 rounded-2xl shadow-sm self-start lg:self-auto">
+          <Clock className="w-4 h-4 text-[#3B833A] animate-spin" style={{ animationDuration: '8s' }} />
           <div className="flex flex-col">
             <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Session Clock</span>
-            <span className="text-lg font-black font-mono tracking-tight text-white">
+            <span className="text-lg font-black font-mono tracking-tight text-slate-900">
               {formatSessionTime(sessionSeconds)}
             </span>
           </div>
           <button
             onClick={() => setSessionActive(!sessionActive)}
-            className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all ${
               sessionActive
-                ? 'bg-amber-500/20 text-amber-300 hover:bg-amber-500/30'
-                : 'bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30'
+                ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                : 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200'
             }`}
           >
             {sessionActive ? 'Pause' : 'Resume'}
@@ -361,216 +360,213 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
         </div>
 
         {/* Right Action Triggers */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={() => setActivityModalOpen(true)}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-slate-200 hover:text-white transition-all shadow-sm"
+            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-bold text-slate-700 hover:text-slate-900 transition-all shadow-sm"
           >
-            <Activity className="w-4 h-4 text-[#F9E34D]" />
+            <Activity className="w-4 h-4 text-[#3B833A]" />
             <span>Log Activity</span>
           </button>
 
           <button
             onClick={handleEndSession}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md shadow-red-950/40"
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white font-black text-xs uppercase tracking-wider transition-all shadow-md shadow-red-950/20 active:scale-95"
           >
             <Square className="w-3.5 h-3.5 fill-current" />
             <span>End Session</span>
           </button>
         </div>
-      </header>
+      </div>
 
-      {/* 2. MAIN OBSERVATION CARDS GRID (Touch-Optimized for Live Telemetry) */}
-      <div className="flex-1 p-4 lg:p-6 overflow-y-auto max-w-7xl mx-auto w-full space-y-6">
-        {/* Workspace Sub-header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 bg-white/5 border border-white/10 p-4 rounded-2xl">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-[#3B833A]/20 border border-[#3B833A]/40 flex items-center justify-center text-lg font-black text-[#F9E34D]">
-              {currentStudent.firstName.charAt(0)}
-            </div>
-            <div>
-              <h2 className="text-base font-black text-white flex items-center gap-2">
-                {currentStudent.firstName} {currentStudent.lastName}
-                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-[#3B833A]/20 text-[#3B833A] border border-[#3B833A]/30">
-                  Active Patient
-                </span>
-              </h2>
-              <p className="text-xs text-slate-300">
-                Diagnosis: <strong className="text-white">{currentStudent.primaryDiagnosis}</strong> | Primary Focus:{' '}
-                <strong className="text-[#F9E34D]">Functional AAC & Motor Independence</strong>
-              </p>
-            </div>
+      {/* 2. PATIENT INFO SUMMARY CARD (Clean White Theme) */}
+      <div className="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-soft flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-lg font-black text-[#3B833A] shadow-sm">
+            {currentStudent.firstName.charAt(0)}
           </div>
-
-          <div className="flex items-center gap-4 text-xs font-bold text-slate-300">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span>Events: {recentEvents.length}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
-              <span>Trial Accuracy: {trialAccuracy}%</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-              <span>Therapist: {therapist.name}</span>
-            </div>
+          <div>
+            <h2 className="text-base font-black text-slate-900 flex items-center gap-2">
+              {currentStudent.firstName} {currentStudent.lastName}
+              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Active Patient
+              </span>
+            </h2>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Diagnosis: <strong className="text-slate-800">{currentStudent.primaryDiagnosis}</strong> • Focus:{' '}
+              <strong className="text-[#3B833A]">Functional AAC & Motor Independence</strong>
+            </p>
           </div>
         </div>
 
-        {/* CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* CARD 1: Spontaneous AAC / Sign (Frequency) */}
-          <LiveFrequencyCard
-            target={DEFAULT_TARGETS[0]}
-            onRecord={(t) => handleRecord(t, { value: 1 })}
-          />
-
-          {/* CARD 2: Task Completion (Frequency) */}
-          <LiveFrequencyCard
-            target={DEFAULT_TARGETS[1]}
-            onRecord={(t) => handleRecord(t, { value: 1 })}
-          />
-
-          {/* CARD 3: Sensory Seeking / Flapping (Frequency Negative/Neutral) */}
-          <LiveFrequencyCard
-            target={DEFAULT_TARGETS[2]}
-            variant="warning"
-            onRecord={(t) => handleRecord(t, { value: 1, type: 'negative' })}
-          />
-
-          {/* CARD 4: Sustained Attention & Focus (Duration Stopwatch) */}
-          <LiveDurationCard
-            target={DEFAULT_TARGETS[3]}
-            onRecord={(t, dur, notes) =>
-              handleRecord(t, { value: dur, notes, type: 'positive' })
-            }
-          />
-
-          {/* CARD 5: Meltdown Duration (Duration Stopwatch) */}
-          <LiveDurationCard
-            target={DEFAULT_TARGETS[4]}
-            variant="danger"
-            onRecord={(t, dur, notes) =>
-              handleRecord(t, { value: dur, notes, type: 'negative' })
-            }
-          />
-
-          {/* CARD 6: Trial Accuracy - Point to Target */}
-          <LiveTrialCard
-            target={DEFAULT_TARGETS[5]}
-            onRecord={(t, isCorrect, attempt, accuracy) =>
-              handleRecord(t, {
-                value: isCorrect ? 1 : 0,
-                success: isCorrect,
-                attempt,
-                accuracy,
-                notes: isCorrect ? 'Correct Trial' : 'Incorrect Trial'
-              })
-            }
-          />
-
-          {/* CARD 7: Trial Accuracy - Pincer Pegboard */}
-          <LiveTrialCard
-            target={DEFAULT_TARGETS[6]}
-            onRecord={(t, isCorrect, attempt, accuracy) =>
-              handleRecord(t, {
-                value: isCorrect ? 1 : 0,
-                success: isCorrect,
-                attempt,
-                accuracy,
-                notes: isCorrect ? 'Correct Trial' : 'Incorrect Trial'
-              })
-            }
-          />
-
-          {/* CARD 8: 6-Tier Prompt Level Hierarchy */}
-          <div className="md:col-span-2 lg:col-span-2">
-            <LivePromptLevelCard
-              target={DEFAULT_TARGETS[7]}
-              onRecord={(t, level, label) =>
-                handleRecord(t, {
-                  value: 1,
-                  promptLevel: level,
-                  notes: `Prompt Level: ${label}`,
-                  type: level === 'INDEPENDENT' ? 'positive' : 'neutral'
-                })
-              }
-            />
+        <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-slate-600">
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 border border-slate-200">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span>Events: {recentEvents.length}</span>
           </div>
-        </div>
-
-        {/* 3. RECENT TELEMETRY EVENTS LOG (Bottom Interactive Drawer) */}
-        <div className="bg-[#112522] border border-white/10 rounded-2xl p-5 shadow-xl space-y-3">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3">
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#F9E34D]" />
-              <h3 className="text-sm font-black uppercase tracking-wider text-white">
-                Live Telemetry Stream ({recentEvents.length} events logged)
-              </h3>
-            </div>
-            <span className="text-[10px] text-slate-400 uppercase font-semibold">
-              Tap undo icon to remove accidental touches
-            </span>
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 border border-slate-200">
+            <span className="w-2 h-2 rounded-full bg-blue-500" />
+            <span>Trial Accuracy: {trialAccuracy}%</span>
           </div>
-
-          <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
-            {recentEvents.length === 0 ? (
-              <p className="text-center py-6 text-sm text-slate-400">
-                No events recorded yet. Tap any clinical card above to log real-time trials and behaviors.
-              </p>
-            ) : (
-              recentEvents.map((evt) => (
-                <div
-                  key={evt.id}
-                  className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-all text-xs"
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`w-2 h-2 rounded-full ${
-                        evt.type === 'positive'
-                          ? 'bg-emerald-400'
-                          : evt.type === 'negative'
-                          ? 'bg-rose-500'
-                          : 'bg-blue-400'
-                      }`}
-                    />
-                    <div>
-                      <span className="font-bold text-white mr-2">{evt.label}</span>
-                      {evt.promptLevel && (
-                        <span className="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold text-[10px] mr-2">
-                          {evt.promptLevel}
-                        </span>
-                      )}
-                      {evt.accuracy !== undefined && (
-                        <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] mr-2">
-                          Accuracy: {evt.accuracy}%
-                        </span>
-                      )}
-                      {evt.notes && <span className="text-slate-400">{evt.notes}</span>}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-[10px] text-slate-400">
-                      {evt.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                    </span>
-                    <button
-                      onClick={() => handleUndo(evt.id)}
-                      className="p-1 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"
-                      title="Undo event"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              ))
-            )}
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 border border-slate-200">
+            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span>Therapist: {therapist.name}</span>
           </div>
         </div>
       </div>
 
-      {/* 4. ACTIVITY LOG MODAL */}
+      {/* 3. MAIN OBSERVATION CARDS GRID (Touch-Optimized Clean Cards) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {/* CARD 1: Spontaneous AAC / Sign (Frequency) */}
+        <LiveFrequencyCard
+          target={DEFAULT_TARGETS[0]}
+          onRecord={(t) => handleRecord(t, { value: 1 })}
+        />
+
+        {/* CARD 2: Task Completion (Frequency) */}
+        <LiveFrequencyCard
+          target={DEFAULT_TARGETS[1]}
+          onRecord={(t) => handleRecord(t, { value: 1 })}
+        />
+
+        {/* CARD 3: Sensory Flapping / Seeking (Frequency Negative/Neutral) */}
+        <LiveFrequencyCard
+          target={DEFAULT_TARGETS[2]}
+          variant="warning"
+          onRecord={(t) => handleRecord(t, { value: 1, type: 'negative' })}
+        />
+
+        {/* CARD 4: Sustained Attention & Focus (Duration Stopwatch) */}
+        <LiveDurationCard
+          target={DEFAULT_TARGETS[3]}
+          onRecord={(t, dur, notes) =>
+            handleRecord(t, { value: dur, notes, type: 'positive' })
+          }
+        />
+
+        {/* CARD 5: Meltdown Duration (Duration Stopwatch) */}
+        <LiveDurationCard
+          target={DEFAULT_TARGETS[4]}
+          variant="danger"
+          onRecord={(t, dur, notes) =>
+            handleRecord(t, { value: dur, notes, type: 'negative' })
+          }
+        />
+
+        {/* CARD 6: Trial Accuracy - Point to Target */}
+        <LiveTrialCard
+          target={DEFAULT_TARGETS[5]}
+          onRecord={(t, isCorrect, attempt, accuracy) =>
+            handleRecord(t, {
+              value: isCorrect ? 1 : 0,
+              success: isCorrect,
+              attempt,
+              accuracy,
+              notes: isCorrect ? 'Correct Trial' : 'Incorrect Trial'
+            })
+          }
+        />
+
+        {/* CARD 7: Trial Accuracy - Pincer Pegboard */}
+        <LiveTrialCard
+          target={DEFAULT_TARGETS[6]}
+          onRecord={(t, isCorrect, attempt, accuracy) =>
+            handleRecord(t, {
+              value: isCorrect ? 1 : 0,
+              success: isCorrect,
+              attempt,
+              accuracy,
+              notes: isCorrect ? 'Correct Trial' : 'Incorrect Trial'
+            })
+          }
+        />
+
+        {/* CARD 8: 6-Tier Prompt Level Hierarchy */}
+        <div className="md:col-span-2 lg:col-span-2">
+          <LivePromptLevelCard
+            target={DEFAULT_TARGETS[7]}
+            onRecord={(t, level, label) =>
+              handleRecord(t, {
+                value: 1,
+                promptLevel: level,
+                notes: `Prompt Level: ${label}`,
+                type: level === 'INDEPENDENT' ? 'positive' : 'neutral'
+              })
+            }
+          />
+        </div>
+      </div>
+
+      {/* 4. RECENT TELEMETRY EVENTS LOG (Clean Light Card) */}
+      <div className="bg-white border border-slate-200/90 rounded-3xl p-6 shadow-soft space-y-4">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-3.5">
+          <div className="flex items-center gap-2.5">
+            <Clock className="w-4 h-4 text-[#3B833A]" />
+            <h3 className="text-sm font-black uppercase tracking-wider text-slate-900">
+              Live Telemetry Stream ({recentEvents.length} events logged)
+            </h3>
+          </div>
+          <span className="text-[11px] text-slate-400 uppercase font-semibold">
+            Tap undo icon to remove accidental touches
+          </span>
+        </div>
+
+        <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
+          {recentEvents.length === 0 ? (
+            <p className="text-center py-6 text-sm text-slate-400">
+              No events recorded yet. Tap any clinical card above to log real-time trials and behaviors.
+            </p>
+          ) : (
+            recentEvents.map((evt) => (
+              <div
+                key={evt.id}
+                className="flex items-center justify-between px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200/70 hover:bg-slate-100/70 transition-all text-xs"
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className={`w-2.5 h-2.5 rounded-full ${
+                      evt.type === 'positive'
+                        ? 'bg-emerald-500'
+                        : evt.type === 'negative'
+                        ? 'bg-rose-500'
+                        : 'bg-blue-500'
+                    }`}
+                  />
+                  <div>
+                    <span className="font-bold text-slate-900 mr-2">{evt.label}</span>
+                    {evt.promptLevel && (
+                      <span className="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[10px] mr-2 border border-blue-200">
+                        {evt.promptLevel}
+                      </span>
+                    )}
+                    {evt.accuracy !== undefined && (
+                      <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[10px] mr-2 border border-emerald-200">
+                        Accuracy: {evt.accuracy}%
+                      </span>
+                    )}
+                    {evt.notes && <span className="text-slate-500">{evt.notes}</span>}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="font-mono text-[11px] text-slate-400">
+                    {evt.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                  </span>
+                  <button
+                    onClick={() => handleUndo(evt.id)}
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                    title="Undo event"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
+      {/* 5. ACTIVITY LOG MODAL */}
       <Modal
         isOpen={activityModalOpen}
         onClose={() => setActivityModalOpen(false)}
@@ -633,7 +629,7 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
         </div>
       </Modal>
 
-      {/* 5. RAPID SOAP NOTE GENERATOR ON END SESSION */}
+      {/* 6. RAPID SOAP NOTE GENERATOR ON END SESSION */}
       <Modal
         isOpen={endSessionModalOpen}
         onClose={() => setEndSessionModalOpen(false)}
@@ -778,7 +774,7 @@ export const ActiveSessionWorkspace: React.FC<{ studentIdProp?: string; onBackTo
 };
 
 // ==========================================
-// OBSERVATION CARDS IMPLEMENTATIONS
+// OBSERVATION CARDS IMPLEMENTATIONS (Clean Light Theme)
 // ==========================================
 
 // 1. FREQUENCY CARD (Touch to increment +1)
@@ -800,29 +796,41 @@ const LiveFrequencyCard: React.FC<{
     <button
       onClick={handleTap}
       type="button"
-      className={`group relative flex flex-col justify-between p-5 rounded-2xl border text-left transition-all active:scale-[0.98] select-none shadow-md overflow-hidden min-h-[140px] ${
+      className={`group relative flex flex-col justify-between p-5 rounded-3xl border text-left transition-all active:scale-[0.98] select-none shadow-soft hover:shadow-md overflow-hidden min-h-[145px] ${
         isWarning
-          ? 'bg-amber-500/10 border-amber-500/30 hover:bg-amber-500/20 text-amber-200'
-          : 'bg-[#152e2a] border-emerald-500/30 hover:bg-[#1a3833] text-emerald-100'
+          ? 'bg-white border-amber-200/90 hover:border-amber-400'
+          : 'bg-white border-slate-200/90 hover:border-[#3B833A]/60'
       }`}
     >
       <div className="flex items-start justify-between w-full">
-        <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-md bg-white/10 text-slate-300">
+        <span
+          className={`text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full border ${
+            isWarning
+              ? 'bg-amber-50 text-amber-800 border-amber-200'
+              : 'bg-slate-100 text-slate-600 border-slate-200'
+          }`}
+        >
           {target.category}
         </span>
-        <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl font-black text-white group-hover:scale-110 transition-transform">
+        <div
+          className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl font-black group-hover:scale-105 transition-transform border ${
+            isWarning
+              ? 'bg-amber-50 text-amber-900 border-amber-200'
+              : 'bg-emerald-50 text-emerald-800 border-emerald-200'
+          }`}
+        >
           {count}
         </div>
       </div>
 
-      <div className="mt-4">
-        <h3 className="text-base font-black leading-snug text-white group-hover:text-[#F9E34D] transition-colors">
+      <div className="mt-3">
+        <h3 className="text-base font-black leading-snug text-slate-900 group-hover:text-[#3B833A] transition-colors">
           {target.label}
         </h3>
-        <p className="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
+        <p className="text-xs text-slate-400 mt-1 flex items-center justify-between">
           <span>{target.baseline}</span>
-          <span className="font-bold text-xs text-[#F9E34D] flex items-center gap-0.5">
-            <Plus className="w-3 h-3" /> Tap to log (+1)
+          <span className="font-bold text-xs text-[#3B833A] flex items-center gap-0.5">
+            <Plus className="w-3.5 h-3.5" /> Tap (+1)
           </span>
         </p>
       </div>
@@ -879,43 +887,43 @@ const LiveDurationCard: React.FC<{
 
   return (
     <div
-      className={`relative flex flex-col justify-between p-5 rounded-2xl border text-left transition-all select-none shadow-md overflow-hidden min-h-[140px] ${
+      className={`relative flex flex-col justify-between p-5 rounded-3xl border text-left transition-all select-none shadow-soft hover:shadow-md min-h-[145px] ${
         isRunning
           ? isDanger
-            ? 'bg-rose-950/40 border-rose-500/60 ring-2 ring-rose-500/30'
-            : 'bg-blue-950/40 border-blue-500/60 ring-2 ring-blue-500/30'
-          : 'bg-[#152e2a] border-white/10'
+            ? 'bg-rose-50/50 border-rose-300 ring-2 ring-rose-500/20'
+            : 'bg-blue-50/50 border-blue-300 ring-2 ring-blue-500/20'
+          : 'bg-white border-slate-200/90'
       }`}
     >
       <div className="flex items-start justify-between w-full">
-        <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-md bg-white/10 text-slate-300">
+        <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
           {target.category}
         </span>
         <div
           className={`font-mono text-xl font-black ${
-            isRunning ? (isDanger ? 'text-rose-400' : 'text-blue-400') : 'text-slate-300'
+            isRunning ? (isDanger ? 'text-rose-600' : 'text-blue-600') : 'text-slate-800'
           }`}
         >
           {formatDuration(elapsedMs)}
         </div>
       </div>
 
-      <div className="mt-3">
-        <h3 className="text-base font-black leading-snug text-white">{target.label}</h3>
-        <p className="text-[11px] text-slate-400 mt-0.5">{target.baseline}</p>
+      <div className="mt-2.5">
+        <h3 className="text-base font-black leading-snug text-slate-900">{target.label}</h3>
+        <p className="text-xs text-slate-400 mt-0.5">{target.baseline}</p>
       </div>
 
-      <div className="mt-4 pt-2 border-t border-white/10 flex items-center justify-between">
-        <span className="text-[10px] font-bold text-slate-400">
+      <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+        <span className="text-[11px] font-bold text-slate-400">
           {isRunning ? '● Timing Live...' : 'Stopped'}
         </span>
         <button
           onClick={toggleTimer}
           type="button"
-          className={`px-3 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 ${
+          className={`px-3.5 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all active:scale-95 shadow-sm ${
             isRunning
-              ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-md'
-              : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-md'
+              ? 'bg-rose-600 hover:bg-rose-500 text-white'
+              : 'bg-[#3B833A] hover:bg-[#326e31] text-white'
           }`}
         >
           {isRunning ? (
@@ -952,38 +960,38 @@ const LiveTrialCard: React.FC<{
   const accuracy = trials.total > 0 ? Math.round((trials.correct / trials.total) * 100) : 0;
 
   return (
-    <div className="flex flex-col justify-between p-5 rounded-2xl bg-[#152e2a] border border-emerald-500/30 text-left shadow-md select-none min-h-[140px]">
+    <div className="flex flex-col justify-between p-5 rounded-3xl bg-white border border-slate-200/90 text-left shadow-soft hover:shadow-md select-none min-h-[145px]">
       <div className="flex items-start justify-between w-full">
         <div>
-          <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-md bg-white/10 text-slate-300">
+          <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
             {target.category}
           </span>
-          <h3 className="text-base font-black leading-snug text-white mt-1.5">{target.label}</h3>
+          <h3 className="text-base font-black leading-snug text-slate-900 mt-1.5">{target.label}</h3>
         </div>
 
         <div className="text-right">
-          <span className="text-[10px] uppercase font-black text-slate-400 block">Accuracy</span>
-          <span className="text-xl font-black text-[#F9E34D]">
+          <span className="text-[10px] uppercase font-bold text-slate-400 block">Accuracy</span>
+          <span className="text-2xl font-black text-[#3B833A]">
             {trials.total > 0 ? `${accuracy}%` : '--'}
           </span>
-          <span className="text-[10px] text-slate-400 block">
+          <span className="text-[10px] text-slate-400 font-semibold block">
             {trials.correct}/{trials.total} trials
           </span>
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
+      <div className="mt-3.5 grid grid-cols-2 gap-2 pt-2.5 border-t border-slate-100">
         <button
           onClick={() => recordTrial(false)}
           type="button"
-          className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-300 font-bold text-xs active:scale-95 transition-all"
+          className="flex items-center justify-center gap-1.5 py-2.5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 font-bold text-xs active:scale-95 transition-all"
         >
           <X className="w-4 h-4" /> Incorrect
         </button>
         <button
           onClick={() => recordTrial(true)}
           type="button"
-          className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-bold text-xs active:scale-95 transition-all"
+          className="flex items-center justify-center gap-1.5 py-2.5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 font-bold text-xs active:scale-95 transition-all"
         >
           <Check className="w-4 h-4" /> Correct
         </button>
@@ -1000,12 +1008,12 @@ const LivePromptLevelCard: React.FC<{
   const [lastPrompt, setLastPrompt] = useState<string | null>(null);
 
   const prompts = [
-    { level: 'INDEPENDENT', label: 'Ind (Independent)', color: 'hover:bg-emerald-500/30 text-emerald-300 border-emerald-500/40' },
-    { level: 'VERBAL', label: 'Verb (Verbal)', color: 'hover:bg-blue-500/30 text-blue-300 border-blue-500/40' },
-    { level: 'GESTURAL', label: 'Gest (Gestural)', color: 'hover:bg-cyan-500/30 text-cyan-300 border-cyan-500/40' },
-    { level: 'MODELING', label: 'Mod (Modeling)', color: 'hover:bg-amber-500/30 text-amber-300 border-amber-500/40' },
-    { level: 'PARTIAL_PHYSICAL', label: 'P.Phys (Partial)', color: 'hover:bg-orange-500/30 text-orange-300 border-orange-500/40' },
-    { level: 'FULL_PHYSICAL', label: 'F.Phys (Full Phys)', color: 'hover:bg-rose-500/30 text-rose-300 border-rose-500/40' }
+    { level: 'INDEPENDENT', label: 'Ind (Independent)', color: 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100' },
+    { level: 'VERBAL', label: 'Verb (Verbal)', color: 'bg-blue-50 text-blue-800 border-blue-200 hover:bg-blue-100' },
+    { level: 'GESTURAL', label: 'Gest (Gestural)', color: 'bg-cyan-50 text-cyan-800 border-cyan-200 hover:bg-cyan-100' },
+    { level: 'MODELING', label: 'Mod (Modeling)', color: 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100' },
+    { level: 'PARTIAL_PHYSICAL', label: 'P.Phys (Partial)', color: 'bg-orange-50 text-orange-800 border-orange-200 hover:bg-orange-100' },
+    { level: 'FULL_PHYSICAL', label: 'F.Phys (Full Phys)', color: 'bg-rose-50 text-rose-800 border-rose-200 hover:bg-rose-100' }
   ];
 
   const handlePrompt = (level: string, label: string) => {
@@ -1014,23 +1022,23 @@ const LivePromptLevelCard: React.FC<{
   };
 
   return (
-    <div className="p-5 rounded-2xl bg-[#152e2a] border border-white/10 text-left shadow-md select-none space-y-3">
+    <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 text-left shadow-soft select-none space-y-3.5">
       <div className="flex items-center justify-between">
         <div>
-          <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-md bg-white/10 text-slate-300">
+          <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
             {target.category}
           </span>
-          <h3 className="text-base font-black text-white mt-1">{target.label}</h3>
+          <h3 className="text-base font-black text-slate-900 mt-1">{target.label}</h3>
         </div>
 
         {lastPrompt && (
-          <span className="text-xs font-bold px-2.5 py-1 rounded-lg bg-white/10 text-[#F9E34D] border border-white/10">
+          <span className="text-xs font-bold px-3 py-1 rounded-xl bg-amber-50 text-amber-800 border border-amber-200">
             Last: {lastPrompt}
           </span>
         )}
       </div>
 
-      <p className="text-[11px] text-slate-400">
+      <p className="text-xs text-slate-500">
         Tap current prompting requirement needed for patient compliance and completion:
       </p>
 
@@ -1040,10 +1048,10 @@ const LivePromptLevelCard: React.FC<{
             key={p.level}
             onClick={() => handlePrompt(p.level, p.label)}
             type="button"
-            className={`p-2.5 rounded-xl bg-white/5 border text-xs font-bold transition-all active:scale-95 text-center flex flex-col items-center justify-center ${p.color}`}
+            className={`p-3 rounded-2xl border text-xs font-bold transition-all active:scale-95 text-center flex flex-col items-center justify-center ${p.color}`}
           >
             <span>{p.label.split(' ')[0]}</span>
-            <span className="text-[10px] text-slate-400 font-normal">
+            <span className="text-[10px] text-slate-500 font-normal mt-0.5">
               {p.label.split(' ')[1]?.replace('(', '')?.replace(')', '') || ''}
             </span>
           </button>
