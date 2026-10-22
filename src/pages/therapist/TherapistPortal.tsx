@@ -16,10 +16,11 @@ import {
   Bookmark,
   ChevronDown,
   X,
-  Printer
+  Activity
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Modal } from '../../components/common/Modal';
+import { ActiveSessionWorkspace } from './ActiveSessionWorkspace';
 
 // Clinical Domain Tags adapted from Brightside reference
 const DOMAIN_OPTIONS = [
@@ -97,6 +98,10 @@ export const TherapistPortal: React.FC = () => {
   const [badgeChildId, setBadgeChildId] = useState(myChildren[0]?.id || 'child-1');
   const [selectedBadge, setSelectedBadge] = useState('Sensory Regulation Tier 1');
 
+  // View mode: 'dashboard' or live 'workspace' (matching Brightside ActiveSessionWorkspace)
+  const [viewMode, setViewMode] = useState<'dashboard' | 'workspace'>('dashboard');
+  const [activeWorkspaceStudentId, setActiveWorkspaceStudentId] = useState<string>(myChildren[0]?.id || 'child-1');
+
   const toggleDomain = (domain: string) => {
     setSelectedDomains((prev) =>
       prev.includes(domain) ? prev.filter((d) => d !== domain) : [...prev, domain]
@@ -152,6 +157,16 @@ export const TherapistPortal: React.FC = () => {
     showToast(`Mastery Badge "${selectedBadge}" awarded to ${child?.firstName || 'Student'}! Synced to Parent Portal.`, 'success');
   };
 
+  // If therapist is in Active Session Workspace mode, render the workspace component
+  if (viewMode === 'workspace') {
+    return (
+      <ActiveSessionWorkspace
+        studentIdProp={activeWorkspaceStudentId}
+        onBackToDashboard={() => setViewMode('dashboard')}
+      />
+    );
+  }
+
   return (
     <div className="space-y-6 pb-12">
       {/* 1. TOP HEADER & RAPID ACTIONS ROW (Brightside Inspired) */}
@@ -181,6 +196,18 @@ export const TherapistPortal: React.FC = () => {
 
         {/* Action Buttons Row */}
         <div className="flex flex-wrap items-center gap-2.5">
+          <button
+            onClick={() => {
+              setActiveWorkspaceStudentId(selectedChildId);
+              setViewMode('workspace');
+            }}
+            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#3B833A] to-emerald-700 hover:from-[#326e31] hover:to-emerald-800 text-white font-black text-xs uppercase tracking-wider shadow-md shadow-emerald-950/20 flex items-center gap-2 transition-all active:scale-95"
+          >
+            <span className="w-2 h-2 rounded-full bg-red-400 animate-ping" />
+            <Activity className="w-4 h-4 text-[#F9E34D]" />
+            <span>Enter Live Workspace</span>
+          </button>
+
           <button
             onClick={() => setRapidBuilderOpen(true)}
             className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow transition-all flex items-center gap-2"
@@ -323,6 +350,17 @@ export const TherapistPortal: React.FC = () => {
                     <div className="flex items-center gap-2">
                       {apt.status !== 'completed' && apt.status !== 'cancelled' && (
                         <>
+                          <button
+                            onClick={() => {
+                              setActiveWorkspaceStudentId(apt.childId);
+                              setViewMode('workspace');
+                            }}
+                            className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-[#F9E34D] font-black text-xs flex items-center gap-1.5 shadow-sm transition-all"
+                            title="Launch live clinical workspace for this student"
+                          >
+                            <Play className="w-3.5 h-3.5 fill-current" />
+                            <span>Live Workspace</span>
+                          </button>
                           <button
                             onClick={() => {
                               updateAppointment(apt.id, { status: 'completed' });

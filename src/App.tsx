@@ -32,6 +32,7 @@ import { IntegrationHub } from './pages/integrations/IntegrationHub';
 // Parent & Therapist Portals
 import { ParentPortal } from './pages/parent/ParentPortal';
 import { TherapistPortal } from './pages/therapist/TherapistPortal';
+import { ActiveSessionWorkspace } from './pages/therapist/ActiveSessionWorkspace';
 
 export function App() {
   return (
@@ -59,6 +60,8 @@ export function App() {
             <Route path="/children" element={<ChildrenManagement />} />
             <Route path="/therapists" element={<TherapistManagement />} />
             <Route path="/therapist-portal" element={<TherapistPortal />} />
+            <Route path="/therapist-workspace" element={<ActiveSessionWorkspace />} />
+            <Route path="/therapist-workspace/:id" element={<ActiveSessionWorkspace />} />
             <Route path="/appointments" element={<AppointmentsPage />} />
             <Route path="/sessions" element={<SessionsPage />} />
             <Route path="/admin-programs" element={<ProgramsAdminPage />} />
