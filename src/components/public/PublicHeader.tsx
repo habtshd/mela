@@ -57,15 +57,8 @@ export const PublicHeader: React.FC = () => {
               })}
             </nav>
 
-            {/* Actions: Sign In & Real Estate Design Link */}
-            <div className="hidden sm:flex items-center gap-2.5">
-              <Link
-                to="/real-estate"
-                className="px-3.5 py-2.5 rounded-xl text-xs font-bold text-black bg-[#84A441] hover:bg-[#739138] shadow-sm flex items-center gap-1.5 transition"
-                title="View Real Estate Luxury Design"
-              >
-                <span>🏡 Real Estate</span>
-              </Link>
+            {/* Actions: Sign In Only */}
+            <div className="hidden sm:flex items-center gap-3">
               <Link
                 to="/login"
                 className="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 shadow-sm shadow-slate-900/10 hover:shadow-md transition-all flex items-center gap-2 group"
