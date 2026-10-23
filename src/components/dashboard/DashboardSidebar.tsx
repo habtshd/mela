@@ -2,23 +2,12 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDemo } from '../../context/DemoContext';
 import {
-  LayoutDashboard,
-  Users,
-  Stethoscope,
-  CalendarDays,
-  FileSpreadsheet,
-  Layers,
-  CreditCard,
-  BarChart3,
-  Settings,
   LogOut,
   X,
   ExternalLink,
-  Shield,
-  UserCheck,
-  Link2,
-  Activity
+  ChevronRight
 } from 'lucide-react';
+import { ADMIN_SIDEBAR_SECTIONS, NavItemConfig } from '../../config/adminNavigation';
 
 interface SidebarProps {
   mobileOpen: boolean;
@@ -29,30 +18,15 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
   const { currentUser, currentRole, switchRole, showToast } = useDemo();
   const navigate = useNavigate();
 
-  const navItems = [
-    { label: 'Overview', href: '/dashboard', icon: LayoutDashboard },
-    { label: 'Children & Intake', href: '/children', icon: Users, badge: '8' },
-    { label: 'Therapist Portal', href: '/therapist-portal', icon: Stethoscope },
-    { label: 'Active Workspace', href: '/therapist-workspace', icon: Activity, badge: 'Live', special: true },
-    { label: 'Appointments & Cal', href: '/appointments', icon: CalendarDays },
-    { label: 'Sessions & SOAP Notes', href: '/sessions', icon: FileSpreadsheet },
-    { label: 'Therapy Programs', href: '/admin-programs', icon: Layers },
-    { label: 'Billing & Invoices', href: '/billing', icon: CreditCard, alert: true },
-    { label: 'Analytics & Reports', href: '/reports', icon: BarChart3 },
-    { label: 'Portal Integrations', href: '/integrations', icon: Link2 },
-    { label: 'Parent Portal View', href: '/parent', icon: UserCheck, special: true },
-    { label: 'Platform Settings', href: '/settings', icon: Settings },
-  ];
-
   const handleSignOut = () => {
     showToast('Signed out from demo session', 'info');
     navigate('/login');
   };
 
-  const roleBadges = {
-    admin: { label: 'Administrator', bg: 'bg-brand-100 text-brand-900 border-brand-300' },
-    therapist: { label: 'Specialist / OT', bg: 'bg-brand-50 text-brand-800 border-brand-200' },
-    parent: { label: 'Parent Portal', bg: 'bg-gold-100 text-gold-900 border-gold-300' }
+  const roleBadges: Record<string, { label: string; tag: string }> = {
+    admin: { label: 'Administrator', tag: 'Care Operations' },
+    therapist: { label: 'Specialist / OT', tag: 'Clinical Staff' },
+    parent: { label: 'Parent Portal', tag: 'Family Care' }
   };
 
   return (
@@ -65,16 +39,15 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
         />
       )}
 
-      {/* Sidebar Container */}
-      {/* Sidebar Container */}
+      {/* Standard Sidebar Container */}
       <aside
         className={`fixed inset-y-0 left-0 z-40 w-64 text-slate-200 flex flex-col transition-transform duration-300 ease-in-out border-r border-white/5 lg:static lg:translate-x-0 ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         } no-print shadow-2xl`}
         style={{ background: 'linear-gradient(180deg, #112522 0%, #0c1c19 100%)' }}
       >
-        {/* Brand Header */}
-        <div className="h-20 px-5 flex items-center justify-between border-b border-white/5">
+        {/* 1. Brand Header */}
+        <div className="h-20 px-5 flex items-center justify-between border-b border-white/5 flex-shrink-0">
           <NavLink to="/dashboard" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-2xl p-1.5 flex items-center justify-center bg-white/5 border border-white/10 shadow-inner group-hover:border-[#F9E34D]/40 transition-colors">
               <img
@@ -85,21 +58,21 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
             </div>
             <div>
               <span className="text-base font-black tracking-tight text-white flex items-center gap-1.5">
-                Mela <span className="text-xs font-semibold px-1.5 py-0.5 rounded-md bg-[#F9E34D]/15 text-[#F9E34D] border border-[#F9E34D]/25">Admin</span>
+                Mela <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#F9E34D]/15 text-[#F9E34D] border border-[#F9E34D]/25">Admin</span>
               </span>
               <p className="text-[10px] text-slate-400 font-medium tracking-wide">Care Management OS</p>
             </div>
           </NavLink>
           <button
             onClick={() => setMobileOpen(false)}
-            className="p-1 rounded-lg text-slate-400 hover:text-white lg:hidden"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 lg:hidden"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Current User Role Card */}
-        <div className="p-3 mx-3 my-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm">
+        {/* 2. Current User Profile Card & Role Switcher */}
+        <div className="p-3 mx-3 my-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-sm flex-shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="relative">
               <img
@@ -111,78 +84,94 @@ export const DashboardSidebar: React.FC<SidebarProps> = ({ mobileOpen, setMobile
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-bold text-white truncate">{currentUser.name}</p>
-              <p className="text-[10px] font-medium text-emerald-400/90 truncate capitalize">
-                {roleBadges[currentRole].label}
-              </p>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-semibold text-emerald-400/90 capitalize">
+                  {roleBadges[currentRole]?.label || 'User'}
+                </span>
+                <span className="text-[9px] text-slate-500">•</span>
+                <span className="text-[9px] text-slate-400 font-medium truncate">
+                  {roleBadges[currentRole]?.tag}
+                </span>
+              </div>
             </div>
           </div>
-
-          {currentRole === 'therapist' && (
-            <div className="mt-2 p-1.5 rounded-lg text-[10px] bg-white/[0.04] border border-white/5 text-[#F9E34D]/90 flex items-center gap-1">
-              <span>🩺</span>
-              <span className="truncate">Active therapist caseload</span>
-            </div>
-          )}
         </div>
 
-        {/* Nav Links */}
-        <nav className="flex-1 px-3 py-3 space-y-0.5 overflow-y-auto">
-          <div className="px-3 py-2 text-[11px] font-medium text-slate-400/70 tracking-wider">
-            Clinical Operations
-          </div>
+        {/* 3. Standard Categorized Navigation Sections */}
+        <nav className="flex-1 px-3 py-1 space-y-4 overflow-y-auto custom-scrollbar">
+          {ADMIN_SIDEBAR_SECTIONS.map((section) => (
+            <div key={section.id} className="space-y-1">
+              <div className="px-3 py-1 text-[10px] font-black tracking-wider uppercase text-slate-400/60">
+                {section.category}
+              </div>
 
-          {navItems.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              onClick={() => setMobileOpen(false)}
-              className={({ isActive }) =>
-                `flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150 group ${
-                  isActive
-                    ? 'bg-white/[0.08] text-white font-semibold'
-                    : item.special
-                    ? 'text-emerald-300 hover:bg-white/[0.04]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <div className="flex items-center gap-3">
-                    <item.icon
-                      className={`w-4 h-4 transition-colors ${
+              <div className="space-y-0.5">
+                {section.items.map((item: NavItemConfig) => (
+                  <NavLink
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all duration-150 group relative ${
                         isActive
-                          ? 'text-[#F9E34D]'
-                          : 'text-slate-400 group-hover:text-slate-300'
-                      }`}
-                    />
-                    <span className="truncate">{item.label}</span>
-                  </div>
+                          ? 'bg-white/[0.08] text-white font-semibold shadow-sm'
+                          : item.special
+                          ? 'text-emerald-300 hover:bg-white/[0.04]'
+                          : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {/* Active vertical accent indicator bar */}
+                        {isActive && (
+                          <span className="absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r-full bg-[#F9E34D]" />
+                        )}
 
-                  <div className="flex items-center gap-2">
-                    {item.badge && (
-                      <span
-                        className={`px-1.5 py-0.2 rounded text-[10px] font-semibold ${
-                          isActive
-                            ? 'bg-[#F9E34D]/20 text-[#F9E34D]'
-                            : 'bg-white/[0.06] text-slate-400'
-                        }`}
-                      >
-                        {item.badge}
-                      </span>
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <item.icon
+                            className={`w-4 h-4 flex-shrink-0 transition-colors ${
+                              isActive
+                                ? 'text-[#F9E34D]'
+                                : item.special
+                                ? 'text-emerald-400'
+                                : 'text-slate-400 group-hover:text-slate-300'
+                            }`}
+                          />
+                          <span className="truncate">{item.label}</span>
+                        </div>
+
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          {item.badge && (
+                            <span
+                              className={`px-1.5 py-0.5 rounded-md text-[10px] font-bold tracking-tight ${
+                                item.badgeVariant === 'live'
+                                  ? 'bg-red-500/20 text-red-300 border border-red-500/30'
+                                  : item.badgeVariant === 'warning'
+                                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                                  : isActive
+                                  ? 'bg-[#F9E34D]/20 text-[#F9E34D]'
+                                  : 'bg-white/[0.06] text-slate-400'
+                              }`}
+                            >
+                              {item.badge}
+                            </span>
+                          )}
+                          {item.alert && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                          )}
+                        </div>
+                      </>
                     )}
-                    {item.alert && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#F9E34D]" />
-                    )}
-                  </div>
-                </>
-              )}
-            </NavLink>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
 
-        {/* Bottom Section: Public Site Link & Sign Out */}
-        <div className="p-3 mx-3 mb-3 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1">
+        {/* 4. Bottom Standard Section: Public Website & Sign Out */}
+        <div className="p-3 mx-3 mb-3 rounded-2xl bg-white/[0.02] border border-white/5 space-y-1 flex-shrink-0">
           <NavLink
             to="/"
             className="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white hover:bg-white/[0.05] transition-colors"
